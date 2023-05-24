@@ -361,6 +361,8 @@ footer .copyright{
     background-color: transparent;
     color: var(--light);
     margin: auto;
+    min-height : 45px;
+    min-width: 45px;
   }
 
   .dropdown{
@@ -487,6 +489,8 @@ footer .copyright{
     background-color: transparent;
     color: var(--light);
     margin: auto;
+    min-height : 45px;
+    min-width: 45px;
   }
 
   .dropdown{
