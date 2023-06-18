@@ -1,0 +1,590 @@
+
+/* BREAKPOINT */
+@media (max-width: 575px) {
+    .nav {
+      justify-content: space-between;
+      padding: 8px auto;
+      border: none;
+    }
+  
+    .jumbotron {
+      min-height: 300px;
+      justify-content: end;
+      align-items: start;
+  
+      .overlay .title {
+        text-align: left;
+        margin-bottom: 20px;
+      }
+    }
+  
+    .btn-dropdown {
+      display: block;
+      border: none;
+      outline: none;
+      font-size: 23pt;
+      padding: 8px;
+      background-color: transparent;
+      color: var(--light);
+      margin: auto;
+      min-height: 45px;
+      min-width: 45px;
+    }
+  
+    .dropdown {
+      margin: 16px;
+      display: flex;
+  
+      &:hover .btn-dropdown {
+        color: var(--on-primary);
+  
+        /* background-color: var(--primary); */
+      }
+    }
+  
+    .dropdown-menu {
+      position: absolute;
+      right: 0;
+      top: 100%;
+      min-width: 150px;
+      padding: 0;
+      z-index: 3;
+      color: var(--light);
+      display: none;
+      background-color: var(--primary);
+      transition: display 2s ease-ease-in-out;
+  
+      ul {
+        list-style: none;
+      }
+    }
+  
+    .sub-main {
+      margin: 36px 0;
+  
+      &:first-child {
+        margin: 0 0 36px 0;
+      }
+    }
+  
+    #our-story {
+      padding-bottom: 16px;
+  
+      h2 {
+        padding: 16px 0;
+        text-align: center;
+        margin-bottom: 16px;
+      }
+  
+      p {
+        text-align: justify;
+      }
+    }
+  
+    .card {
+      .card-img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+  
+      .card-body {
+        padding: 16px;
+        min-height: 85px;
+      }
+    }
+  
+    .slider-content .card {
+      min-width: 200px;
+      margin: 0 8px;
+      flex-shrink: 0;
+    }
+  
+    .slider .arrow {
+      display: none;
+    }
+  
+    footer {
+      padding: 16px 20px;
+  
+      .info {
+        display: grid;
+        grid-template-columns: 1fr;
+  
+        .right, .left {
+          text-align: center;
+        }
+      }
+    }
+  }
+  
+  @media (min-width: 576px) and (max-width: 767px) {
+    .jumbotron {
+      min-height: 45vh;
+    }
+  
+    #our-story {
+      text-align: center;
+      padding: 8px;
+      margin-bottom: 5rem;
+  
+      h2 {
+        padding: 16px 0;
+        text-align: center;
+        margin-bottom: 12px;
+      }
+  
+      p {
+        line-height: 1.8rem;
+      }
+    }
+  
+    #subscribe {
+      margin-bottom: 5rem;
+  
+      form {
+        margin-top: 32px;
+        max-width: 65%;
+      }
+    }
+  
+    .btn-dropdown {
+      display: block;
+      border: none;
+      outline: none;
+      font-size: 23pt;
+      padding: 8px;
+      background-color: transparent;
+      color: var(--light);
+      margin: auto;
+      min-height: 45px;
+      min-width: 45px;
+    }
+  
+    .dropdown {
+      margin: 8px 16px;
+      display: flex;
+    }
+  
+    .dropdown-menu {
+      position: absolute;
+      right: 0;
+      top: 100%;
+      min-width: 150px;
+      padding: 0;
+      z-index: 99;
+      color: var(--light);
+      display: none;
+      background-color: var(--primary);
+  
+      ul {
+        list-style: none;
+      }
+    }
+  
+    .card {
+      .card-img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+  
+      .card-body {
+        padding: 16px;
+        min-height: 75px;
+      }
+    }
+  
+    .slider-content .card {
+      min-width: 180px;
+      margin: 0 8px;
+      flex-shrink: 0;
+    }
+  
+    .slider .arrow {
+      display: none;
+    }
+  
+    footer {
+      padding: 20px 32px 8px 32px;
+  
+      .info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+  
+        .right {
+          text-align: right;
+        }
+  
+        .left {
+          text-align: left;
+        }
+      }
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 991px) {
+    .nav .nav-brand {
+      margin: 16px 32px;
+    }
+  
+    .jumbotron {
+      border-radius: 0;
+      min-height: 350px;
+  
+      .overlay {
+        justify-content: center;
+        align-items: center;
+  
+        .title {
+          text-align: center;
+          margin-bottom: 16px;
+        }
+      }
+    }
+  
+    #our-story {
+      padding: 8px 32px;
+      margin-bottom: 40px;
+  
+      h2 {
+        padding: 16px 0;
+        text-align: center;
+        margin-bottom: 12px;
+      }
+  
+      p {
+        text-align: center;
+        line-height: 1.7rem;
+      }
+    }
+  
+    #subscribe {
+      margin-bottom: 40px;
+  
+      form {
+        margin-top: 32px;
+        max-width: 55%;
+      }
+    }
+  
+    .btn-dropdown {
+      display: none;
+    }
+  
+    .dropdown {
+      margin: 8px 32px;
+      display: flex;
+    }
+  
+    .dropdown-menu {
+      position: relative;
+      padding: 0;
+      color: var(--light);
+      display: block;
+      background-color: transparent;
+      font-weight: 500;
+      letter-spacing: 1px;
+  
+      ul {
+        display: flex !important;
+        flex-direction: row;
+        flex-wrap: wrap;
+        list-style: none;
+  
+        li {
+          display: inline-block !important;
+        }
+      }
+    }
+  
+    .card {
+      .card-img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+  
+      .card-body {
+        padding: 16px;
+        min-height: 85px;
+      }
+    }
+  
+    .slider-content .card {
+      min-width: 200px;
+      margin: 0 8px;
+      flex-shrink: 0;
+    }
+  
+    footer {
+      padding: 20px 32px 8px 32px;
+  
+      .info {
+        width: 85%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+  
+        .right {
+          text-align: right;
+        }
+  
+        .left {
+          text-align: left;
+        }
+      }
+    }
+  }
+  
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .nav {
+      font-weight: bold;
+      letter-spacing: .5px;
+    }
+  
+    .jumbotron {
+      border-radius: 0;
+      min-height: 350px;
+  
+      .overlay {
+        justify-content: center;
+        align-items: center;
+  
+        .title {
+          text-align: center;
+          margin-bottom: 16px;
+        }
+      }
+    }
+  
+    #our-story {
+      padding: 8px 5rem;
+      margin-bottom: 4.5rem;
+  
+      h2 {
+        padding: 16px 0;
+        text-align: center;
+        margin-bottom: 12px;
+      }
+  
+      p {
+        text-align: center;
+        line-height: 1.9rem;
+      }
+    }
+  
+    #subscribe {
+      margin-bottom: 40px;
+  
+      form {
+        margin-top: 32px;
+        max-width: 50%;
+      }
+    }
+  
+    .btn-dropdown {
+      display: none;
+    }
+  
+    .dropdown {
+      margin: 8px;
+      display: flex;
+    }
+  
+    .dropdown-menu {
+      position: relative;
+      padding: 0;
+      color: var(--light);
+      display: block !important;
+      font-weight: 500;
+      letter-spacing: 1px;
+  
+      ul {
+        display: flex !important;
+        flex-direction: row;
+        flex-wrap: wrap;
+        list-style: none;
+  
+        li {
+          display: inline-block !important;
+        }
+      }
+    }
+  
+    .slider .card {
+      min-width: 250px;
+      margin: 0 8px;
+    }
+  
+    .card {
+      .card-img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+  
+      .card-body {
+        padding: 16px;
+        min-height: 80px;
+      }
+    }
+  
+    footer {
+      padding: 20px 32px 8px 32px;
+  
+      .info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 85%;
+        margin: auto;
+  
+        .right {
+          text-align: right;
+        }
+  
+        .left {
+          text-align: left;
+        }
+      }
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .nav {
+      font-weight: bold;
+      letter-spacing: .5px;
+    }
+  
+    .sub-main {
+      width: 90%;
+      margin: 24px auto;
+  
+      h2 {
+        text-align: center;
+        margin-bottom: 16px;
+      }
+    }
+  
+    #our-story {
+      width: 70%;
+      margin-bottom: 4rem;
+  
+      p {
+        text-align: center;
+        line-height: 2rem;
+      }
+    }
+  
+    #subscribe {
+      margin-bottom: 40px;
+  
+      form {
+        margin-top: 32px;
+        max-width: 50%;
+      }
+    }
+  
+    .jumbotron {
+      min-height: 60vh;
+      min-width: 1000px;
+  
+      .overlay {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+  
+        .title {
+          margin-bottom: 24px;
+          text-align: center;
+        }
+  
+        .sub-title {
+          font-weight: 600;
+          font-size: 14pt;
+        }
+      }
+    }
+  
+    .nav .nav-brand {
+      margin: 20px 0 20px 60px;
+    }
+  
+    .btn-dropdown {
+      display: none;
+    }
+  
+    .dropdown {
+      margin: 20px 60px 20px 0;
+      display: flex;
+    }
+  
+    .dropdown-menu {
+      position: relative;
+      padding: 0;
+      display: block;
+      font-weight: 500;
+      letter-spacing: 1px;
+  
+      ul {
+        display: flex !important;
+        flex-direction: row;
+        flex-wrap: wrap;
+        list-style: none;
+  
+        li {
+          display: inline-block !important;
+        }
+      }
+    }
+  
+    .slider .card {
+      min-width: 250px;
+      margin: 0 8px;
+    }
+  
+    .card {
+      .card-img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+  
+      .card-body {
+        padding: 16px;
+        min-height: 80px;
+      }
+    }
+  
+    footer {
+      padding: 32px 32px 8px 32px;
+      font-size: 12pt;
+  
+      .info {
+        width: 80%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+  
+        .right {
+          text-align: right;
+        }
+  
+        .left {
+          text-align: left;
+        }
+      }
+    }
+  }
+  
