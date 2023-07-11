@@ -1,11 +1,11 @@
 const Favorite = {
-  async render() {
-    return 'Favorite Restaurant';
+  async render () {
+    return 'Favorite Restaurant'
   },
 
-  async afterRender() {
-    return 'after render';
-  },
-};
+  async afterRender () {
+    return 'after render'
+  }
+}
 
-export default Favorite;
+export default Favorite
