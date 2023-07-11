@@ -2,11 +2,19 @@ import 'regenerator-runtime' /* for async await transpile */
 import '../styles/main.scss'
 import './components/cardElement'
 import data from '../DATA.json'
+import App from './views/app'
+
+// eslint-disable-next-line no-unused-vars
+const app = new App({
+  button: document.querySelector('#btn-dropdown'),
+  drawer: document.querySelector('#dropdown-menu'),
+  content: document.querySelector('#main-content')
+})
 
 const { restaurants } = data
 const PopularSection = document.getElementById('popular')
-const btnDropdown = document.getElementById('btn-dropdown')
-const menuDropdown = document.getElementById('dropdown-menu')
+// const btnDropdown = document.getElementById('btn-dropdown')
+// const menuDropdown = document.getElementById('dropdown-menu')
 const nextBtn = document.getElementById('right-arrow')
 const prevBtn = document.getElementById('left-arrow')
 const slider = document.getElementById('popular')
@@ -23,16 +31,16 @@ restaurants.forEach((resto) => {
   PopularSection.appendChild(CardElement)
 })
 
-btnDropdown.addEventListener('click', (e) => {
-  e.stopPropagation()
-  if (menuDropdown.classList.contains('show')) {
-    menuDropdown.classList.remove('show')
-    menuDropdown.classList.add('hide')
-  } else {
-    menuDropdown.classList.remove('hide')
-    menuDropdown.classList.add('show')
-  }
-})
+// btnDropdown.addEventListener('click', (e) => {
+//   e.stopPropagation()
+//   if (menuDropdown.classList.contains('show')) {
+//     menuDropdown.classList.remove('show')
+//     menuDropdown.classList.add('hide')
+//   } else {
+//     menuDropdown.classList.remove('hide')
+//     menuDropdown.classList.add('show')
+//   }
+// })
 
 function scrollLeft () {
   setTimeout(() => {
