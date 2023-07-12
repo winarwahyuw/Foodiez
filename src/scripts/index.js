@@ -31,17 +31,6 @@ restaurants.forEach((resto) => {
   PopularSection.appendChild(CardElement)
 })
 
-// btnDropdown.addEventListener('click', (e) => {
-//   e.stopPropagation()
-//   if (menuDropdown.classList.contains('show')) {
-//     menuDropdown.classList.remove('show')
-//     menuDropdown.classList.add('hide')
-//   } else {
-//     menuDropdown.classList.remove('hide')
-//     menuDropdown.classList.add('show')
-//   }
-// })
-
 function scrollLeft () {
   setTimeout(() => {
     slider.scrollTo(slider.scrollLeft + 600, window.scrollY)
@@ -56,3 +45,13 @@ function scrollRight () {
 
 nextBtn.addEventListener('click', scrollLeft)
 prevBtn.addEventListener('click', scrollRight)
+
+window.addEventListener('hashchange', () => {
+  app.renderPage()
+  console.log('haschange')
+})
+
+window.addEventListener('load', () => {
+  app.renderPage()
+  console.log('load')
+})
