@@ -1,8 +1,12 @@
 import 'regenerator-runtime' /* for async await transpile */
 import '../styles/main.scss'
+import '../styles/responsive.scss'
 import './components/cardElement'
 import data from '../DATA.json'
 import App from './views/app'
+import swRegister from './utils/sw-register'
+import WebSocketInitiator from './utils/websocket-initiator'
+import CONFIG from './globals/config'
 
 // eslint-disable-next-line no-unused-vars
 const app = new App({
@@ -13,8 +17,6 @@ const app = new App({
 
 const { restaurants } = data
 const PopularSection = document.getElementById('popular')
-// const btnDropdown = document.getElementById('btn-dropdown')
-// const menuDropdown = document.getElementById('dropdown-menu')
 const nextBtn = document.getElementById('right-arrow')
 const prevBtn = document.getElementById('left-arrow')
 const slider = document.getElementById('popular')
@@ -53,5 +55,7 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage()
+  swRegister()
+  WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER)
   console.log('load')
 })
