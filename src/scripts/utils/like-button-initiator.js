@@ -1,27 +1,27 @@
-import FavoriteMovieIdb from '../data/favorite-movie.-idb'
+import FavoriteIdb from '../data/favorite.-idb'
 import { createLikeButtonTemplate, createLikedButtonTemplate } from '../views/templates/template-creator'
 
 const LikeButtonInitiator = {
-  async init ({ likeButtonContainer, movie }) {
+  async init ({ likeButtonContainer, restaurant }) {
     this._likeButtonContainer = likeButtonContainer
-    this._movie = movie
+    this._restaurant = restaurant
 
     await this._renderButton()
   },
 
   async _renderButton () {
-    const { id } = this._movie
+    const { id } = this._restaurant
 
-    if (await this._isMovieExist(id)) {
+    if (await this._isRestaurantExist(id)) {
       this._renderLiked()
     } else {
       this._renderLike()
     }
   },
 
-  async _isMovieExist (id) {
-    const movie = await FavoriteMovieIdb.getMovie(id)
-    return !!movie
+  async _isRestaurantExist (id) {
+    const restaurant = await FavoriteIdb.getRestaurant(id)
+    return !!restaurant
   },
 
   _renderLike () {
@@ -29,7 +29,7 @@ const LikeButtonInitiator = {
 
     const likeButton = document.querySelector('#likeButton')
     likeButton.addEventListener('click', async () => {
-      await FavoriteMovieIdb.putMovie(this._movie)
+      await FavoriteIdb.putRestaurant(this._restaurant)
       this._renderButton()
     })
   },
@@ -39,7 +39,7 @@ const LikeButtonInitiator = {
 
     const likeButton = document.querySelector('#likeButton')
     likeButton.addEventListener('click', async () => {
-      await FavoriteMovieIdb.deleteMovie(this._movie.id)
+      await FavoriteIdb.deleteRestaurant(this._restaurant.id)
       this._renderButton()
     })
   }

@@ -1,37 +1,40 @@
-import CONFIG from '../../globals/config'
-
-const createMovieDetailTemplate = (movie) => `
-  <h2 class="movie__title">${movie.title}</h2>
-  <img class="movie__poster" src="${CONFIG.BASE_IMAGE_URL + movie.poster_path}" alt="${movie.title}" />
-  <div class="movie__info">
-    <h3>Information</h3>
-    <h4>Tagline</h4>
-    <p>${movie.tagline}</p>
-    <h4>Release Date</h4>
-    <p>${movie.release_date}</p>
-    <h4>Duration</h4>
-    <p>${movie.runtime} minutes</p>
-    <h4>Rating</h4>
-    <p>${movie.vote_average}</p>
-  </div>
-  <div class="movie__overview">
-    <h3>Overview</h3>
-    <p>${movie.overview}</p>
+import API_ENDPOINT from '../../globals/api-endpoint'
+const createRestaurantItem = (restaurant) => `
+  <div class="card d-flex-col">
+    <img class="card-img" src="${API_ENDPOINT.IMAGE_SMALL(restaurant.pictureId)}" alt="Gambar Restoran">
+    <div class="card-body">
+        <p class="title">${restaurant.name}</p>
+        <p>${restaurant.city}</p>
+        <p><i class="fa fa-star icon-secondary"></i> ${restaurant.rating}</p>
+    </div>
+    <div class="card-footer d-flex-row">
+        <button class="btn-sm btn-secondary"><a href="/#/detail/${restaurant.id}">Check this Out</a></button>
+    </div>
   </div>
 `
-
-const createMovieItemTemplate = (movie) => `
-  <div class="movie-item">
-    <div class="movie-item__header">
-      <img class="movie-item__header__poster" alt="${movie.title}"
-           src="${movie.backdrop_path ? CONFIG.BASE_IMAGE_URL + movie.backdrop_path : 'https://picsum.photos/id/666/800/450?grayscale'}">
-      <div class="movie-item__header__rating">
-        <p>⭐️<span class="movie-item__header__rating__score">${movie.vote_average}</span></p>
-      </div>
+const createRestaurantDetail = (restaurant) => `
+  <div class='detail-resto'>
+    <div class='detail-header'>
+        <h3 class="my-2">Information</h3>
+        <p>Rating ${restaurant.rating} <i class="fa fa-star icon-secondary"></i></p>
+        <p>${restaurant.address}</p>
+        <p>${restaurant.city}</p>
+        <p class="my-2">Categories : ${restaurant.categories.map((category) => ` ${category.name}`)}</span></p>
+        <p class="my-2">${restaurant.description}</p>
+        <button class="btn btn-secondary"><a href="/#/detail/${restaurant.id}">See Reviews</a></button>
     </div>
-    <div class="movie-item__content">
-      <h3><a href="/#/detail/${movie.id}">${movie.title}</a></h3>
-      <p>${movie.overview}</p>
+    <div class="detail-content">
+        <h3 class="my-2">Our Menus</h3>
+        <div class="" id="list-menus">
+          <div class="detail-menus">
+            <p>Foods</p>        
+            <ul class="foods">${restaurant.menus.foods.map((food) => `<li>${food.name}</li>`).join('')} </ul>
+          </div>
+          <div class="detail-menus">
+            <p>Drinks</p>
+            <ul class="foods">${restaurant.menus.drinks.map((drink) => `<li>${drink.name}</li>`).join('')} </ul>
+          </div>
+        </div>
     </div>
   </div>
 `
@@ -48,4 +51,4 @@ const createLikedButtonTemplate = () => `
   </button>
 `
 
-export { createMovieItemTemplate, createMovieDetailTemplate, createLikeButtonTemplate, createLikedButtonTemplate }
+export { createRestaurantItem, createRestaurantDetail, createLikeButtonTemplate, createLikedButtonTemplate }

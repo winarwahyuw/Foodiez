@@ -10,6 +10,40 @@
   --dark:#000;
 }
 
+a{
+  text-decoration: none;
+  color: unset;
+}
+
+.label-warning{
+  background-color: var(--secondary);
+  padding: 1px 2px;
+}
+
+.detail-resto{
+  position: relative;
+  padding: 32px;
+  min-height: 100px;
+  padding: 16px;
+}
+
+.detail-content #list-menus{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.detail-menus ul{
+  padding-left: 16px;
+}
+
+.my-2{
+  margin: 1rem 0;
+}
+
+.my-3{
+  margin: 1.2rem 0;
+}
+
 .skip-link {
   position: absolute;
   top: -40px;
@@ -51,12 +85,22 @@ header {
   margin: 0;
   padding: 0;
   position: relative;
+  z-index: 1;
+}
+
+#jumbotron-home{
+  background-image: url('../../dist/images/heros/hero-image_2.jpg');
+}
+
+#jumbotron-favorite{
+  background-image: url('../../dist/images/heros/hero-image_1.jpg');
+  min-height: 210px;
+  overflow-y: hidden;
 }
 
 .jumbotron {
   min-height: 200px;
   background-size: auto;
-  background-image: url('../../dist/images/heros/hero-image_2.jpg');
   background-color: #000;
 
   .overlay {
@@ -209,6 +253,22 @@ main {
   }
 }
 
+.d-flex{
+  display: flex;
+}
+
+.d-flex-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.d-flex-col{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .slider-header {
   display: flex;
   flex-direction: row;
@@ -272,6 +332,17 @@ main {
   font-family: 'Poppins', sans-serif;
 }
 
+.btn-sm{
+  border: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin: 0;
+  text-decoration: unset;
+  font-weight: 500;
+  font-size: 11pt;
+  font-family: 'Poppins', sans-serif;
+}
+
 .btn-secondary {
   background-color: var(--secondary);
   color: var(--primary);
@@ -293,7 +364,8 @@ footer {
   min-height: fit-content;
   display: flex;
   flex-direction: column;
-  padding-top: 16px;
+  padding-top: 20px;
+  padding-bottom: 16px;
 
   .info {
     .right, .left {
@@ -327,6 +399,13 @@ footer {
   }
 }
 
+footer #footerTools {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
 .show {
   display: block !important;
 }
@@ -349,15 +428,16 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #12db00;
-  
   position: fixed;
-  bottom: 16px;
-  right: 16px;
+  right: 20px;
+  bottom: 20px;
   border-radius: 50%;
-  border: 0;
-  
+  border: 1px var(--secondary) solid;
   font-size: 18px;
-  color: rgb(238, 28, 28);
+  background-color: var(--secondary);
   cursor: pointer;
+}
+
+.text-secondary{
+  color: var(--secondary);
 }
