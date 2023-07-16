@@ -16,7 +16,7 @@ const Detail = {
       </div>
     </div>
 
-    <div class="container detail">
+    <div class="container detail" id="content-detail">
       <div class="card detail-resto" id="detail-resto"></div>
       <div class="card my-2" id="reviews">
         <div class="my-2 reviews-form" id="reviews-form">
@@ -46,6 +46,14 @@ const Detail = {
     const reviewsContainer = document.querySelector('#reviews-content')
     const formAddReview = document.getElementById('add-review')
     const alertAddReview = document.getElementById('alert')
+    const skipLink = document.getElementById('skip-link')
+    const content = document.querySelector('#content-detail')
+
+    skipLink.addEventListener('click', (e) => {
+      e.preventDefault()
+      content.scrollIntoView({ behavior: 'smooth' })
+      skipLink.blur()
+    })
 
     jumbotron.style.backgroundImage = `url(${API_ENDPOINT.IMAGE_LARGE(restaurant.pictureId)})`
     restaurantName.append(restaurant.name)

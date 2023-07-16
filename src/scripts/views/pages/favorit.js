@@ -10,7 +10,7 @@ const Favorite = {
         </div>
       </div>
 
-      <div class="container">
+      <div class="container" id="content-favorite">
         <div id="fav-restaurants" class="favorite">
         </div>
       </div>
@@ -19,8 +19,15 @@ const Favorite = {
 
   async afterRender () {
     const restaurants = await FavoriteIdb.getAllRestaurants()
-    console.log(restaurants)
     const moviesContainer = document.querySelector('#fav-restaurants')
+    const skipLink = document.getElementById('skip-link')
+    const content = document.querySelector('#content-favorite')
+
+    skipLink.addEventListener('click', (e) => {
+      e.preventDefault()
+      content.scrollIntoView({ behavior: 'smooth' })
+      skipLink.blur()
+    })
 
     restaurants.forEach((resto) => {
       moviesContainer.innerHTML += createRestaurantItem(resto)

@@ -12,7 +12,7 @@ const Home = {
       </div>
     </div>
 
-    <div class="container">
+    <div class="container" id="content-home">
       <div class="sub-main" id="our-story">
         <h2>Our Story</h2>
         <p>Food is more than sustenance. It is a vibrant tapestry of flavors, textures, and aromas that dance upon the taste buds. It has the power to evoke memories, forge connections, and ignite the senses. From the sizzling sound of a steak searing on a hot grill to the delicate aroma of freshly baked bread, food entices and captivates us. It is a language that transcends borders, bringing people together to share in the joy of nourishment and culinary exploration. Whether it's the simplicity of a perfectly ripe fruit or the complexity of a multi-course feast, food is a universal pleasure that celebrates culture, creativity, and the beauty of the senses.</p>
@@ -49,6 +49,14 @@ const Home = {
     const nextBtn = document.getElementById('right-arrow')
     const prevBtn = document.getElementById('left-arrow')
     const slider = document.getElementById('popular')
+    const skipLink = document.getElementById('skip-link')
+    const content = document.querySelector('#content-home')
+
+    skipLink.addEventListener('click', (e) => {
+      e.preventDefault()
+      content.scrollIntoView({ behavior: 'smooth' })
+      skipLink.blur()
+    })
 
     const restaurants = await TheRestaurantDbSource.listRestaurant()
 
