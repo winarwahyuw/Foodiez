@@ -8,7 +8,7 @@ const createRestaurantItem = (restaurant) => `
         <p><i class="fa fa-star icon-secondary"></i> ${restaurant.rating}</p>
     </div>
     <div class="card-footer d-flex-row">
-        <a class="btn-sm btn-secondary" href="/#/detail/${restaurant.id}">Check this Out</a>
+        <a class="btn btn-secondary" href="/#/detail/${restaurant.id}">Check this Out</a>
     </div>
   </div>
 `
