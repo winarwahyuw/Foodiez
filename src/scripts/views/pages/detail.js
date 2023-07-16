@@ -16,8 +16,8 @@ const Detail = {
       </div>
     </div>
 
-    <div class="container">
-      <div class="card" id="detail-resto"></div>
+    <div class="container detail">
+      <div class="card detail-resto" id="detail-resto"></div>
       <div class="card my-2" id="reviews">
         <div class="my-2 reviews-form" id="reviews-form">
           <h3 class="title my-3">Have been here? Add review</h3>

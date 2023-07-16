@@ -120,6 +120,8 @@
 
   .detail-resto{
     display: block;
+    position: relative;
+    padding: 24px 12px 32px 12px;
   }
 
   .detail-content{
@@ -253,6 +255,8 @@
 
   .detail-resto{
     display: block;
+    position: relative;
+    padding: 24px 12px 32px 12px;
   }
 
   .detail-content{
@@ -398,6 +402,9 @@
 
   .detail-resto{
     display: block;
+    position: relative;
+    padding: 24px 12px 32px 12px;
+    min-height: 100px;
   }
 
   .detail-content{
@@ -543,6 +550,7 @@
   .detail-resto{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    padding: 16px;
   }
 
   #list-menus> div{
@@ -707,6 +715,7 @@
   .detail-resto{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    padding: 16px;
   }
 
   #list-menus> div{

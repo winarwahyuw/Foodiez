@@ -13,7 +13,6 @@ const createRestaurantItem = (restaurant) => `
   </div>
 `
 const createRestaurantDetail = (restaurant) => `
-  <div class='detail-resto'>
     <div class='detail-header'>
         <h3 class="my-2">Information</h3>
         <p>Rating ${restaurant.rating} <i class="fa fa-star icon-secondary"></i></p>
@@ -35,7 +34,6 @@ const createRestaurantDetail = (restaurant) => `
           </div>
         </div>
     </div>
-  </div>
 `
 
 const createReviews = (review) => `
@@ -47,7 +45,7 @@ const createReviews = (review) => `
 `
 
 const createAlert = (type, msg) => `
-  <p class='alert-${type} my-2'>${msg}</p>
+  <span class='alert-${type} my-2'>${msg}</span>
 `
 
 const createLikeButtonTemplate = () => `
