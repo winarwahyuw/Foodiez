@@ -131,6 +131,14 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
+
+  #reviews{
+    display: block;
+  }
+
+  .reviews-content{
+    margin: 16px;
+  }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
@@ -255,6 +263,14 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
+  }
+
+  #reviews{
+    display: block;
+  }
+
+  .reviews-content{
+    margin: 16px;
   }
 }
 
@@ -393,6 +409,18 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 8px;
   }
+
+  #reviews{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reviews-content{
+    margin: 16px;
+    padding: 16px;
+    height: 400px;
+    overflow-y: auto;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -529,6 +557,18 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
+  }
+
+  #reviews{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reviews-content{
+    margin: 16px;
+    padding: 16px;
+    height: 400px;
+    overflow-y: auto;
   }
 }
 
@@ -681,5 +721,17 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
+  }
+
+  #reviews{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reviews-content{
+    margin: 16px;
+    padding: 16px;
+    height: 400px;
+    overflow-y: auto;
   }
 }

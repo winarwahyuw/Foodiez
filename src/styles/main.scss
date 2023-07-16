@@ -8,7 +8,9 @@
   --gr-primary:linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(254, 177, 57, 1) 48%);
   --light:#FFF;
   --dark:#000;
+  --light-secondary: #c4c4c4;
 }
+
 
 a{
   text-decoration: none;
@@ -34,6 +36,44 @@ a{
 
 .detail-menus ul{
   padding-left: 16px;
+}
+
+.review-item{
+  border-bottom: 1px solid var(--light-secondary);
+  padding: 8px;
+}
+
+.reviews-form{
+  display: flex;
+  flex-direction: column;
+  margin: 16px;
+  padding: 16px;
+}
+
+#reviews input, #reviews textarea{
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  background-color: transparent;
+  min-height: 40px;
+  padding: 8px;
+  width: -webkit-fill-available;
+  display: block;
+  margin-bottom: 8px;
+}
+
+
+.alert-success{
+  padding: 2px 4px;
+  border-radius: 5px;
+  background-color: rgb(102, 255, 102);
+  color: rgb(17, 75, 4);
+}
+
+.alert-danger{
+  padding: 2px 4px;
+  border-radius: 5px;
+  background-color: rgba(255, 163, 163, 0.746);
+  color: rgb(76, 8, 8);
 }
 
 .my-2{
@@ -354,6 +394,17 @@ main {
   }
 }
 
+.btn-primary{
+  background-color: var(--primary);
+  color: var(--light);
+  letter-spacing: 1px;
+
+  &:hover, &:active, &:focus {
+    background-color: var(--on-primary);
+    color: var(--primary);
+  }
+}
+
 .icon-secondary {
   color: var(--secondary);
 }
@@ -440,4 +491,18 @@ footer #footerTools {
 
 .text-secondary{
   color: var(--secondary);
+}
+
+::-webkit-scrollbar{
+  width: 8px;
+  }
+  ::-webkit-scrollbar-track{
+    background: var(--light);
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 0 6px rgba(133, 133, 133, 0.3);
+  }
+::-webkit-scrollbar-thumb{
+  background: var(--primary);
+  border-radius: 4px;
+  -webkit-box-shadow:inset 0 0 6px rgba(133, 133, 133, 0.5);
 }

@@ -21,7 +21,6 @@ const createRestaurantDetail = (restaurant) => `
         <p>${restaurant.city}</p>
         <p class="my-2">Categories : ${restaurant.categories.map((category) => ` ${category.name}`)}</span></p>
         <p class="my-2">${restaurant.description}</p>
-        <button class="btn btn-secondary"><a href="/#/detail/${restaurant.id}">See Reviews</a></button>
     </div>
     <div class="detail-content">
         <h3 class="my-2">Our Menus</h3>
@@ -39,6 +38,18 @@ const createRestaurantDetail = (restaurant) => `
   </div>
 `
 
+const createReviews = (review) => `
+  <div class="review-item">
+    <p><b>${review.name}</b></p>
+    <p>${review.date}</p>
+    <p>${review.review}</p>
+  </div>
+`
+
+const createAlert = (type, msg) => `
+  <p class='alert-${type} my-2'>${msg}</p>
+`
+
 const createLikeButtonTemplate = () => `
   <button aria-label="like this movie" id="likeButton" class="like">
     <i class="fa fa-heart-o" aria-hidden="true"></i>
@@ -51,4 +62,4 @@ const createLikedButtonTemplate = () => `
   </button>
 `
 
-export { createRestaurantItem, createRestaurantDetail, createLikeButtonTemplate, createLikedButtonTemplate }
+export { createRestaurantItem, createRestaurantDetail, createLikeButtonTemplate, createLikedButtonTemplate, createReviews, createAlert }

@@ -16,29 +16,21 @@ class TheRestaurantDbSource {
   static async detailRestaurant (id) {
     const response = await fetch(API_ENDPOINT.DETAIL(id))
     const responseJson = await response.json()
-    console.log(responseJson)
 
     return responseJson.error ? 'Not found restaurant' : responseJson.restaurant
   }
+
+  static async putRestaurantReview (postData) {
+    const response = await fetch(API_ENDPOINT.ADD_REVIEW, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(postData)
+    })
+
+    const responseJson = await response.json()
+    return responseJson.error ? 'Not found restaurant' : responseJson
+  }
 }
 export default TheRestaurantDbSource
-
-// class TheMovieDbSource {
-//   static async nowPlayingMovies () {
-//     const response = await fetch(API_ENDPOINT.NOW_PLAYING)
-//     const responseJson = await response.json()
-//     return responseJson.results
-//   }
-
-//   static async upcomingMovies () {
-//     const response = await fetch(API_ENDPOINT.UPCOMING)
-//     const responseJson = await response.json()
-//     return responseJson.results
-//   }
-
-//   static async detailMovie (id) {
-//     const response = await fetch(API_ENDPOINT.DETAIL(id))
-//     return response.json()
-//   }
-// }
-// export default TheMovieDbSource
