@@ -23,7 +23,7 @@ const Detail = {
           <h3 class="title my-3">Have been here? Add review</h3>
           <form action="" id="add-review">
             <p id="alert"></p>
-            <input type="text" id="name" placeholder="your name.." required>
+            <input type="text" id="name" name="name" placeholder="your name.." required>
             <textarea name="review" id="review" rows="5" placeholder="say something about this place.." required></textarea>
             <button type="submit" id="btn-add-review" class="btn btn-secondary">Add Review</button>
           </form>
