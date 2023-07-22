@@ -141,6 +141,10 @@
   .reviews-content{
     margin: 16px;
   }
+      
+  #jumbotron-error .overlay{
+    min-height: 60vh;
+  }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
@@ -275,6 +279,10 @@
 
   .reviews-content{
     margin: 16px;
+  }
+      
+  #jumbotron-error .overlay{
+    min-height: 65vh;
   }
 }
 
@@ -428,6 +436,11 @@
     height: 400px;
     overflow-y: auto;
   }
+
+      
+  #jumbotron-error .overlay{
+    min-height: 70vh;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -577,6 +590,10 @@
     padding: 16px;
     height: 400px;
     overflow-y: auto;
+  }
+      
+  #jumbotron-error .overlay{
+    min-height: 85vh;
   }
 }
 
@@ -742,5 +759,9 @@
     padding: 16px;
     height: 400px;
     overflow-y: auto;
+  }
+    
+  #jumbotron-error .overlay{
+    min-height: 85vh;
   }
 }

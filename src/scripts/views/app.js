@@ -1,6 +1,7 @@
 import DrawerInitiator from '../utils/drawer-initiator'
 import UrlParser from '../routes/urlParser'
 import routes from '../routes/routes'
+import ErrorPage from '../views/pages/error'
 
 class App {
   constructor ({ button, drawer, content }) {
@@ -22,10 +23,14 @@ class App {
 
   async renderPage () {
     const url = UrlParser.parseActiveUrlWithCombiner()
-    console.log(url)
-    const page = routes[url]
-    this._content.innerHTML = await page.render()
-    await page.afterRender()
+    try {
+      const page = routes[url]
+      this._content.innerHTML = await page.render()
+      await page.afterRender()
+    } catch (error) {
+      this._content.innerHTML = await ErrorPage.render()
+      await ErrorPage.afterRender()
+    }
   }
 }
 export default App

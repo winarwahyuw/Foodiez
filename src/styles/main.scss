@@ -161,6 +161,11 @@ header {
   overflow-y: hidden;
 }
 
+#jumbotron-error{
+  background-image: url('../public/icons/not-found-page.png');
+  background-size: cover;
+}
+
 .jumbotron {
   min-height: 200px;
   background-size: auto;
