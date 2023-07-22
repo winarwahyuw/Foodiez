@@ -55,30 +55,6 @@ module.exports = {
           purpose: 'maskable any',
           destination: 'icons'
         }
-        // {
-        //   src: path.resolve('/icons/icon-96x96.png'),
-        //   type: 'image/png',
-        //   size: '96x96',
-        //   purpose: 'any maskable'
-        // },
-        // {
-        //   src: path.resolve('/icons/icon-128x128.png'),
-        //   type: 'image/png',
-        //   size: '128x128',
-        //   purpose: 'any maskable'
-        // },
-        // {
-        //   src: path.resolve('dist/icons/icon-144x144.png'),
-        //   type: 'image/png',
-        //   size: '144x144',
-        //   purpose: 'any maskable'
-        // },
-        // {
-        //   src: path.resolve('dist/icons/icon-152x152.png'),
-        //   type: 'image/png',
-        //   size: '152x152',
-        //   purpose: 'maskable'
-        // }
       ]
     })
   ]
