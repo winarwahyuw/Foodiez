@@ -14,7 +14,7 @@ const assetsToCache = [
   './index.html',
   './favicon.png',
   './app.bundle.js',
-  './app.webmanifest',
+  './app.manifest.json',
   './sw.bundle.js'
 ]
 

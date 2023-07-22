@@ -52,6 +52,37 @@ a{
   margin-bottom: 8px;
 }
 
+.handling-page{
+  width: fit-content;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color: var(--light);
+  border-radius: 15px;
+  border: 1px solid --dark;
+  display: block;
+  box-shadow: 0 1px 2px 0 rgba(188, 188, 188, 0.44);
+  padding: 16px 64px;
+  margin: 8px auto;
+}
+
+
+.handling-page .handling-icon{
+  font-size: 5rem;
+}
+
+.handling-page p,
+.handling-page h3{
+  display: block;
+}
+
+.handling-page a{
+  display: inline-block;
+  margin: 16px auto;
+}
 
 .alert-success{
   padding: 2px 4px;
@@ -77,7 +108,7 @@ a{
 
 .skip-link {
   position: absolute;
-  top: -40px;
+  top: -50px;
   left: 0;
   padding: 12px 8px;
   background-color: var(--primary);

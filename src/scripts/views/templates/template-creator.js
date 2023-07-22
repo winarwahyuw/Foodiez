@@ -8,7 +8,7 @@ const createRestaurantItem = (restaurant) => `
         <p><i class="fa fa-star icon-secondary"></i> ${restaurant.rating}</p>
     </div>
     <div class="card-footer d-flex-row">
-        <a class="btn btn-secondary" href="/#/detail/${restaurant.id}">Check this Out</a>
+        <a class="btn btn-secondary" href="#/detail/${restaurant.id}">Check this Out</a>
     </div>
   </div>
 `
@@ -60,4 +60,25 @@ const createLikedButtonTemplate = () => `
   </button>
 `
 
-export { createRestaurantItem, createRestaurantDetail, createLikeButtonTemplate, createLikedButtonTemplate, createReviews, createAlert }
+const createHandlingPage = (title, message) => `
+  <div class="handling-page">
+    <span class="handling-icon"><i class="fa fa-frown-o" aria-hidden="true"></i></span>
+    <div class="handling-page-content">
+      <h3 class="title my-2">${title}</h3>
+      <p class="message">${message}</p>
+    </div>
+    <div class="handling-page-footer">
+      <a class="btn btn-secondary" href="/">Back to Home</a>
+    </div>
+  </div>
+`
+
+export {
+  createRestaurantItem,
+  createRestaurantDetail,
+  createLikeButtonTemplate,
+  createLikedButtonTemplate,
+  createReviews,
+  createAlert,
+  createHandlingPage
+}

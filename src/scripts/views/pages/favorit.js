@@ -1,5 +1,5 @@
 import FavoriteIdb from '../../data/favorite.-idb'
-import { createRestaurantItem } from '../templates/template-creator'
+import { createRestaurantItem, createHandlingPage } from '../templates/template-creator'
 
 const Favorite = {
   async render () {
@@ -10,7 +10,7 @@ const Favorite = {
         </div>
       </div>
 
-      <div class="container" id="content-favorite">
+      <div class="container content-favorite" id="content-favorite">
         <div id="fav-restaurants" class="favorite">
         </div>
       </div>
@@ -19,7 +19,7 @@ const Favorite = {
 
   async afterRender () {
     const restaurants = await FavoriteIdb.getAllRestaurants()
-    const moviesContainer = document.querySelector('#fav-restaurants')
+    const favContainer = document.querySelector('#fav-restaurants')
     const skipLink = document.getElementById('skip-link')
     const content = document.querySelector('#content-favorite')
 
@@ -29,9 +29,7 @@ const Favorite = {
       skipLink.blur()
     })
 
-    restaurants.forEach((resto) => {
-      moviesContainer.innerHTML += createRestaurantItem(resto)
-    })
+    restaurants.length > 0 ? restaurants.forEach((resto) => { favContainer.innerHTML += createRestaurantItem(resto) }) : content.innerHTML = createHandlingPage('OOPSS...', 'No favorite restaurant found')
   }
 }
 

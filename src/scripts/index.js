@@ -5,6 +5,8 @@ import App from './views/app'
 import swRegister from './utils/sw-register'
 import WebSocketInitiator from './utils/websocket-initiator'
 import CONFIG from './globals/config'
+import UrlParser from './routes/urlParser'
+// import routes from './routes/routes'
 
 const app = new App({
   button: document.querySelector('#btn-dropdown'),
@@ -13,9 +15,17 @@ const app = new App({
 })
 
 window.addEventListener('hashchange', () => {
-  app.renderPage()
+  const urlCombiner = UrlParser.parseActiveUrlWithCombiner()
+  const urlWithoutCombiner = UrlParser.parseActiveUrlWithoutCombiner()
+
+  console.log(window.location.hash.toLowerCase())
+  console.log(urlCombiner)
+  console.log(urlWithoutCombiner)
   console.log('haschange')
-  window.scrollTo(0, 0)
+  setTimeout(() => {
+    app.renderPage()
+    window.scrollTo(0, 0)
+  }, 5000)
 })
 
 window.addEventListener('load', () => {
