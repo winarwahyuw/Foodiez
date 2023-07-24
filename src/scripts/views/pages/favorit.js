@@ -18,7 +18,6 @@ const Favorite = {
   },
 
   async afterRender () {
-    const restaurants = await FavoriteIdb.getAllRestaurants()
     const favContainer = document.querySelector('#fav-restaurants')
     const skipLink = document.getElementById('skip-link')
     const content = document.querySelector('#content-favorite')
@@ -29,6 +28,7 @@ const Favorite = {
       skipLink.blur()
     })
 
+    const restaurants = await FavoriteIdb.getAllRestaurants()
     restaurants.length > 0 ? restaurants.forEach((resto) => { favContainer.innerHTML += createRestaurantItem(resto) }) : content.innerHTML = createHandlingPage('OOPSS...', 'No favorite restaurant found')
   }
 }

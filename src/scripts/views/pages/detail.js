@@ -2,7 +2,7 @@ import UrlParser from '../../routes/urlParser'
 import TheRestaurantDbSource from '../../data/therestaurantdb-source'
 import LikeButtonInitiator from '../../utils/like-button-initiator'
 import API_ENDPOINT from '../../globals/api-endpoint'
-import { createAlert, createRestaurantDetail, createReviews } from '../templates/template-creator'
+import { createAlert, createRestaurantDetail, createReviews, createHandlingPage } from '../templates/template-creator'
 // import API_ENDPOINT from '../../globals/api-endpoint'
 // import CONFIG from '../../globals/config'
 
@@ -10,7 +10,7 @@ const Detail = {
   async render () {
     return `
     <div class="jumbotron" id="jumbotron-detail">
-      <div class="overlay">
+      <div class="overlay" id="overlay-detail">
         <h1 class="title" id="restaurant-name"></h1>
         <p class="sub-title">Find the delicious food to make your day!</p>
       </div>
@@ -37,68 +37,76 @@ const Detail = {
     `
   },
   async afterRender () {
-    const url = UrlParser.parseActiveUrlWithoutCombiner()
-    const restaurant = await TheRestaurantDbSource.detailRestaurant(url.id)
-
     const jumbotron = document.getElementById('jumbotron-detail')
+    const jumbotronOverlay = document.querySelector('#overlay-detail')
     const restaurantName = document.getElementById('restaurant-name')
     const container = document.querySelector('#detail-resto')
-    const reviewsContainer = document.querySelector('#reviews-content')
+    const reviewsContainer = document.querySelector('#reviews')
+    const reviewsContent = document.querySelector('#reviews-content')
     const formAddReview = document.getElementById('add-review')
     const alertAddReview = document.getElementById('alert')
     const skipLink = document.getElementById('skip-link')
     const content = document.querySelector('#content-detail')
+    const url = UrlParser.parseActiveUrlWithoutCombiner()
 
-    skipLink.addEventListener('click', (e) => {
-      e.preventDefault()
-      content.scrollIntoView({ behavior: 'smooth' })
-      skipLink.blur()
-    })
+    try {
+      const restaurant = await TheRestaurantDbSource.detailRestaurant(url.id)
+      skipLink.addEventListener('click', (e) => {
+        e.preventDefault()
+        content.scrollIntoView({ behavior: 'smooth' })
+        skipLink.blur()
+      })
 
-    jumbotron.style.backgroundImage = `url(${API_ENDPOINT.IMAGE_LARGE(restaurant.pictureId)})`
-    restaurantName.append(restaurant.name)
-    container.innerHTML = createRestaurantDetail(restaurant)
+      jumbotron.style.backgroundImage = `url(${API_ENDPOINT.IMAGE_LARGE(restaurant.pictureId)})`
+      restaurantName.append(restaurant.name)
+      container.innerHTML = createRestaurantDetail(restaurant)
 
-    restaurant.customerReviews.map((review) => (
-      reviewsContainer.innerHTML += createReviews(review)
-    ))
-
-    formAddReview.addEventListener('submit', async (e) => {
-      e.preventDefault()
-
-      const id = restaurant.id
-      const name = document.getElementById('name').value
-      const review = document.getElementById('review').value
-
-      const result = await TheRestaurantDbSource.putRestaurantReview({ id, name, review })
-      result.error ? alertAddReview.innerHTML = createAlert('danger', result.message) : alertAddReview.innerHTML = createAlert('success', `Add review ${result.message}`)
-
-      setTimeout(() => {
-        alertAddReview.style.display = 'none'
-      }, 2000)
-
-      result?.customerReviews?.map((review) => (
-        reviewsContainer.innerHTML += createReviews(review)
+      restaurant.customerReviews.map((review) => (
+        reviewsContent.innerHTML += createReviews(review)
       ))
 
-      formAddReview.reset()
-    })
+      formAddReview.addEventListener('submit', async (e) => {
+        e.preventDefault()
 
-    LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant: {
-        id: restaurant.id,
-        name: restaurant.name,
-        description: restaurant.description,
-        city: restaurant.city,
-        address: restaurant.address,
-        pictureId: restaurant.pictureId,
-        rating: restaurant.rating,
-        categories: restaurant.categories,
-        menus: restaurant.menus,
-        customerReviews: restaurant.customerReviews
-      }
-    })
+        const id = restaurant.id
+        const name = document.getElementById('name').value
+        const review = document.getElementById('review').value
+
+        const result = await TheRestaurantDbSource.putRestaurantReview({ id, name, review })
+        result.error ? alertAddReview.innerHTML = createAlert('danger', result.message) : alertAddReview.innerHTML = createAlert('success', `Add review ${result.message}`)
+
+        setTimeout(() => {
+          alertAddReview.style.display = 'none'
+        }, 2000)
+
+        result?.customerReviews?.map((review) => (
+          reviewsContent.innerHTML += createReviews(review)
+        ))
+
+        formAddReview.reset()
+      })
+
+      LikeButtonInitiator.init({
+        likeButtonContainer: document.querySelector('#likeButtonContainer'),
+        restaurant: {
+          id: restaurant.id,
+          name: restaurant.name,
+          description: restaurant.description,
+          city: restaurant.city,
+          address: restaurant.address,
+          pictureId: restaurant.pictureId,
+          rating: restaurant.rating,
+          categories: restaurant.categories,
+          menus: restaurant.menus,
+          customerReviews: restaurant.customerReviews
+        }
+      })
+    } catch (error) {
+      console.log(error)
+      reviewsContainer.style.display = 'none'
+      content.style.display = 'none'
+      jumbotronOverlay.innerHTML = createHandlingPage('Oopss..', 'Could not reach the page because you are offline!')
+    }
   }
 }
 export default Detail
