@@ -2,6 +2,9 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default
+const ImageminMozjpeg = require('imagemin-mozjpeg')
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -13,6 +16,12 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '',
     clean: true
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin({
+      include: 'src/scripts/views/app.js'
+    })]
   },
   module: {
     rules: [
@@ -44,17 +53,26 @@ module.exports = {
       short_name: 'foodiez',
       description: 'A restaurant catalogue app v3',
       background_color: '#ffffff',
+      theme_color: '#1a191c',
       crossorigin: 'use-credentials',
-      filename: 'app.manifest.json',
+      filename: 'app.manifest',
       start_url: './index.html',
       icons: [
         {
-          src: path.resolve('src/public/icons/foodiez-icon.png'),
+          src: path.resolve('dist/icons/foodiez-icon.png'),
           type: 'image/png',
           sizes: [48, 72, 96, 144, 192, 512],
           purpose: 'maskable any',
           destination: 'icons'
         }
+      ]
+    }),
+    new ImageminWebpackPlugin({
+      plugins: [
+        ImageminMozjpeg({
+          quality: 50,
+          progressive: true
+        })
       ]
     })
   ]
