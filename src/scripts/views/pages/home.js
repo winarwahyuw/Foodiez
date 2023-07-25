@@ -18,7 +18,6 @@ const Home = {
         <p>Food is more than sustenance. It is a vibrant tapestry of flavors, textures, and aromas that dance upon the taste buds. It has the power to evoke memories, forge connections, and ignite the senses. From the sizzling sound of a steak searing on a hot grill to the delicate aroma of freshly baked bread, food entices and captivates us. It is a language that transcends borders, bringing people together to share in the joy of nourishment and culinary exploration. Whether it's the simplicity of a perfectly ripe fruit or the complexity of a multi-course feast, food is a universal pleasure that celebrates culture, creativity, and the beauty of the senses.</p>
       </div>
 
-      <div class="lds-ring"><div></div></div>
       <div class="sub-main slider">
         <div class="slider-header">
           <div class="left">
@@ -60,7 +59,6 @@ const Home = {
     })
 
     const restaurants = await TheRestaurantDbSource.listRestaurant()
-
     restaurants.forEach((restaurant) => {
       slider.innerHTML += createRestaurantItem(restaurant)
     })
@@ -79,7 +77,6 @@ const Home = {
 
     nextBtn.addEventListener('click', scrollLeft)
     prevBtn.addEventListener('click', scrollRight)
-    return restaurants
   }
 }
 export default Home

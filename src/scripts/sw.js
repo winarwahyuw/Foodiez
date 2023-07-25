@@ -1,20 +1,15 @@
 import 'regenerator-runtime'
 import CacheHelper from './utils/cache-helper'
-// Daftar asset yang akan dicaching
+
 const assetsToCache = [
   './',
-  './icons/maskable_icon.png',
-  './icons/maskable_icon_x48.png',
-  './icons/maskable_icon_x72.png',
-  './icons/maskable_icon_x96.png',
-  './icons/maskable_icon_x128.png',
-  './icons/maskable_icon_x192.png',
-  './icons/maskable_icon_x384.png',
-  './icons/maskable_icon_x512.png',
+  './icons',
+  './icons/foodiez-icon.png',
+  './icons/not-found-page.png',
   './index.html',
   './favicon.png',
   './app.bundle.js',
-  './app.manifest.json',
+  './app.manifest',
   './sw.bundle.js'
 ]
 

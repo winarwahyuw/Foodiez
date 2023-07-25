@@ -13,6 +13,7 @@
 a{
   text-decoration: none;
   color: unset;
+  font-display:'Poppins', sans-serif;
 }
 
 .label-warning{
@@ -306,6 +307,7 @@ main {
 .container {
   margin: auto;
   padding: 32px;
+  min-height: 100px;
 }
 
 .grid-container {
@@ -326,6 +328,9 @@ main {
 
   .title {
     font-weight: 500;
+  }
+  .card-img{
+    background-color: var(--light-secondary);
   }
 }
 
@@ -557,10 +562,10 @@ footer #footerTools {
   width: 64px;
   height: 64px;
   margin: 8px;
-  border: 8px solid #fed;
+  border: 8px solid #ffd000;
   border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #fed transparent transparent transparent;
+  animation: lds-ring .8s cubic-bezier(0.5, 0.5, 0.5, 0.5) infinite;
+  border-color: #ffd000 #ffd000 #c4c4c4  #c4c4c4;
 }
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
