@@ -1,8 +1,9 @@
 import UrlParser from '../../routes/urlParser'
 import TheRestaurantDbSource from '../../data/therestaurantdb-source'
-import LikeButtonInitiator from '../../utils/like-button-initiator'
+import LikeButtonPresenter from '../../utils/like-button-presenter'
 import API_ENDPOINT from '../../globals/api-endpoint'
 import { createAlert, createRestaurantDetail, createReviews, createHandlingPage } from '../templates/template-creator'
+import FavoriteIdb from '../../data/favorite.-idb'
 // import API_ENDPOINT from '../../globals/api-endpoint'
 // import CONFIG from '../../globals/config'
 
@@ -86,8 +87,9 @@ const Detail = {
         formAddReview.reset()
       })
 
-      LikeButtonInitiator.init({
+      LikeButtonPresenter.init({
         likeButtonContainer: document.querySelector('#likeButtonContainer'),
+        favoriteRestaurants: FavoriteIdb,
         restaurant: {
           id: restaurant.id,
           name: restaurant.name,

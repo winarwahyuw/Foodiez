@@ -1,9 +1,10 @@
-import FavoriteIdb from '../data/favorite.-idb'
+// import FavoriteIdb from '../data/favorite.-idb'
 import { createLikeRestaurantButtonTemplate, createUnlikeRestaurantButtonTemplate } from '../views/templates/template-creator'
 
-const LikeButtonInitiator = {
-  async init ({ likeButtonContainer, restaurant }) {
+const LikeButtonPresenter = {
+  async init ({ likeButtonContainer, favoriteRestaurant, restaurant }) {
     this._likeButtonContainer = likeButtonContainer
+    this._favoriteRestaurants = favoriteRestaurant
     this._restaurant = restaurant
 
     await this._renderButton()
@@ -20,7 +21,7 @@ const LikeButtonInitiator = {
   },
 
   async _isRestaurantExist (id) {
-    const restaurant = await FavoriteIdb.getRestaurant(id)
+    const restaurant = await this._favoriteRestaurants.getRestaurant(id)
     return !!restaurant
   },
 
@@ -29,7 +30,7 @@ const LikeButtonInitiator = {
 
     const likeButton = document.querySelector('#likeButton')
     likeButton.addEventListener('click', async () => {
-      await FavoriteIdb.putRestaurant(this._restaurant)
+      await this._favoriteRestaurants.putRestaurant(this._restaurant)
       this._renderButton()
     })
   },
@@ -39,10 +40,10 @@ const LikeButtonInitiator = {
 
     const likeButton = document.querySelector('#likeButton')
     likeButton.addEventListener('click', async () => {
-      await FavoriteIdb.deleteRestaurant(this._restaurant.id)
+      await this._favoriteRestaurants.deleteRestaurant(this._restaurant.id)
       this._renderButton()
     })
   }
 }
 
-export default LikeButtonInitiator
+export default LikeButtonPresenter
