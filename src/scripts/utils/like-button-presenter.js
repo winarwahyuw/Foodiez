@@ -1,4 +1,3 @@
-// import FavoriteIdb from '../data/favorite.-idb'
 import { createLikeRestaurantButtonTemplate, createUnlikeRestaurantButtonTemplate } from '../views/templates/template-creator'
 
 const LikeButtonPresenter = {
