@@ -116,13 +116,13 @@ describe('Searching restaurants', () => {
   describe('When query is empty', () => {
     it('should capture the query as empty', () => {
       searchRestaurants(' ')
-      expect(presenter.latestQuery.length).toEqual(0)
+      expect(presenter.latestQuery?.length).toEqual(0)
 
       searchRestaurants('     ')
-      expect(presenter.latestQuery.length).toEqual(0)
+      expect(presenter.latestQuery?.length).toEqual(0)
 
       searchRestaurants('\t')
-      expect(presenter.latestQuery.length).toEqual(0)
+      expect(presenter.latestQuery?.length).toEqual(0)
     })
 
     it('should ask the model to search for restaurants', () => {
@@ -136,6 +136,30 @@ describe('Searching restaurants', () => {
       searchRestaurants('    ')
       expect(favoriteRestaurants.getAllRestaurants)
         .toHaveBeenCalled()
+    })
+  })
+
+  describe('When no favorite restaurants could be found', () => {
+    it('should show the empty message', (done) => {
+      document.getElementById('restaurant-search-container')
+        .addEventListener('restaurants:searched:updated', () => {
+          expect(document.querySelectorAll('.restaurants__not__found')?.length).toEqual(1)
+          done()
+        })
+
+      favoriteRestaurants.searchRestaurants.withArgs('Restaurant X').and.returnValues([])
+
+      searchRestaurants('Restaurant X')
+    })
+
+    it('should not show any restaurant', (done) => {
+      document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
+        expect(document.querySelectorAll('.restaurant')?.length).toEqual(0)
+        done()
+      })
+
+      favoriteRestaurants.searchRestaurants.withArgs('Restaurant X').and.returnValues([])
+      searchRestaurants('Restaurant X')
     })
   })
 })
