@@ -4,6 +4,7 @@ import FavoriteIdb from '../src/scripts/data/favorite.-idb'
 
 describe('Searching restaurants', () => {
   let presenter
+  let favoriteRestaurants
 
   const searchRestaurants = (query) => {
     const queryElement = document.getElementById('query')
@@ -30,8 +31,10 @@ describe('Searching restaurants', () => {
   }
 
   const constructPresenter = () => {
-    spyOn(FavoriteIdb, 'searchRestaurants')
-    presenter = new FavoriteRestaurantSearchPresenter({ favoriteRestaurants: FavoriteIdb })
+    favoriteRestaurants = spyOnAllFunctions(FavoriteIdb)
+    presenter = new FavoriteRestaurantSearchPresenter({
+      favoriteRestaurants
+    })
   }
 
   beforeEach(() => {
@@ -39,68 +42,100 @@ describe('Searching restaurants', () => {
     constructPresenter()
   })
 
-  it('should be able to capture the query typed by the user', () => {
-    searchRestaurants('Restaurant X')
-    expect(presenter.latestQuery).toEqual('Restaurant X')
-  })
+  describe('When query is not empty', () => {
+    it('should be able to capture the query typed by the user', () => {
+      searchRestaurants('Restaurant X')
+      expect(presenter.latestQuery).toEqual('Restaurant X')
+    })
 
-  it('should ask the model to search for liked restaurants', () => {
-    searchRestaurants('Restaurant X')
-    expect(FavoriteIdb.searchRestaurants).toHaveBeenCalledWith('Restaurant X')
-  })
+    it('should ask the model to search for liked restaurants', () => {
+      searchRestaurants('Restaurant X')
+      expect(FavoriteIdb.searchRestaurants).toHaveBeenCalledWith('Restaurant X')
+    })
 
-  it('should show the found retaurants', () => {
-    presenter._showFoundRestaurants([{ id: 1 }])
-    const foundRestaurants = document.querySelectorAll('.restaurant')
-    expect(foundRestaurants.length).toEqual(1)
-  })
+    it('should show the found retaurants', () => {
+      presenter._showFoundRestaurants([{ id: 1 }])
+      const foundRestaurants = document.querySelectorAll('.restaurant')
+      expect(foundRestaurants.length).toEqual(1)
+    })
 
-  it('should show the title of the found restaurants', () => {
-    presenter._showFoundRestaurants([{ id: 1, title: 'Satu' }])
-    expect(document.querySelectorAll('.restaurant__title').item(0).textContent).toEqual('Satu')
-    presenter._showFoundRestaurants([{ id: 1, title: 'Satu' }, { id: 2, title: 'Dua' }])
+    it('should show the title of the found restaurants', () => {
+      presenter._showFoundRestaurants([{ id: 1, title: 'Satu' }])
+      expect(document.querySelectorAll('.restaurant__title').item(0).textContent).toEqual('Satu')
+      presenter._showFoundRestaurants([{ id: 1, title: 'Satu' }, { id: 2, title: 'Dua' }])
 
-    const restaurantTitles = document.querySelectorAll('.restaurant__title')
-    expect(restaurantTitles.item(0).textContent).toEqual('Satu')
-    expect(restaurantTitles.item(1).textContent).toEqual('Dua')
-  })
+      const restaurantTitles = document.querySelectorAll('.restaurant__title')
+      expect(restaurantTitles.item(0).textContent).toEqual('Satu')
+      expect(restaurantTitles.item(1).textContent).toEqual('Dua')
+    })
 
-  it('should show - for found restaurant without title', () => {
-    presenter._showFoundRestaurants([{ id: 1 }])
-    expect(document.querySelectorAll('.restaurant__title').item(0).textContent).toEqual('-')
-  })
+    it('should show - for found restaurant without title', () => {
+      presenter._showFoundRestaurants([{ id: 1 }])
+      expect(document.querySelectorAll('.restaurant__title').item(0).textContent).toEqual('-')
+    })
 
-  it('should show the restaurants found by Favorite Restaurants', (done) => {
-    document.getElementById('restaurant-search-container')
-      .addEventListener('restaurants:searched:updated', () => {
-        expect(document.querySelectorAll('.restaurant').length).toEqual(3)
+    it('should show the restaurants found by Favorite Restaurants', (done) => {
+      document.getElementById('restaurant-search-container')
+        .addEventListener('restaurants:searched:updated', () => {
+          expect(document.querySelectorAll('.restaurant').length).toEqual(3)
+          done()
+        })
+
+      favoriteRestaurants.searchRestaurants.withArgs('Restaurant X')
+        .and
+        .returnValues([
+          { id: 111, title: 'Restaurant Xbc' },
+          { id: 222, title: 'ada juga Restaurant Xbcde' },
+          { id: 333, title: 'ini juga boleh Restaurant X' }
+        ])
+
+      searchRestaurants('Restaurant X')
+    })
+
+    it('should show the name of the restaurants found by Favorite restaurants', (done) => {
+      document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
+        const restaurantTitles = document.querySelectorAll('.restaurant__title')
+        expect(restaurantTitles.item(0).textContent).toEqual('Restaurant Xbc')
+        expect(restaurantTitles.item(1).textContent).toEqual('ada juga Restaurant Xbcde')
+        expect(restaurantTitles.item(2).textContent).toEqual('ini juga boleh Restaurant X')
         done()
       })
 
-    FavoriteIdb.searchRestaurants.withArgs('Restaurant X').and.returnValues([
-      { id: 111, title: 'Restaurant Xbc' },
-      { id: 222, title: 'ada juga Restaurant Xabcde' },
-      { id: 333, title: 'ini juga boleh Restaurant X' }
-    ])
+      favoriteRestaurants.searchRestaurants.withArgs('Restaurant X')
+        .and
+        .returnValues([
+          { id: 111, title: 'Restaurant Xbc' },
+          { id: 222, title: 'ada juga Restaurant Xbcde' },
+          { id: 333, title: 'ini juga boleh Restaurant X' }
+        ])
 
-    searchRestaurants('Restaurant X')
+      searchRestaurants('Restaurant X')
+    })
   })
 
-  it('should show the name of the restaurants found by Favorite restaurants', (done) => {
-    document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
-      const restaurantTitles = document.querySelectorAll('.restaurant__title')
-      expect(restaurantTitles.item(0).textContent).toEqual('Restaurant Xbc')
-      expect(restaurantTitles.item(1).textContent).toEqual('ada juga Restaurant Xbcde')
-      expect(restaurantTitles.item(2).textContent).toEqual('ini juga boleh Restaurant X')
-      done()
+  describe('When query is empty', () => {
+    it('should capture the query as empty', () => {
+      searchRestaurants(' ')
+      expect(presenter.latestQuery.length).toEqual(0)
+
+      searchRestaurants('     ')
+      expect(presenter.latestQuery.length).toEqual(0)
+
+      searchRestaurants('\t')
+      expect(presenter.latestQuery.length).toEqual(0)
     })
 
-    FavoriteIdb.searchRestaurants.withArgs('Restaurant X').and.returnValues([
-      { id: 111, title: 'Restaurant Xbc' },
-      { id: 222, title: 'ada juga Restaurant Xbcde' },
-      { id: 333, title: 'ini juga boleh Restaurant X' }
-    ])
+    it('should ask the model to search for restaurants', () => {
+      searchRestaurants('Restaurant X')
 
-    searchRestaurants('Restaurant X')
+      expect(favoriteRestaurants.searchRestaurants)
+        .toHaveBeenCalledWith('Restaurant X')
+    })
+
+    it('should show all favorite restaurants', () => {
+      searchRestaurants('    ')
+      expect(favoriteRestaurants.getAllRestaurants)
+        .toHaveBeenCalled()
+    })
   })
 })
