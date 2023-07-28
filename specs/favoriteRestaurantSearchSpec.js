@@ -2,9 +2,44 @@
 import FavoriteRestaurantSearchPresenter from '../src/scripts/views/pages/liked-restaurants/favorite-restaurant-search-presenter'
 import FavoriteIdb from '../src/scripts/data/favorite.-idb'
 
+class FavoriteRestaurantSearchView {
+  getTemplate () {
+    return `
+    <div id="restaurant-search-container">
+      <input id="query" type="text">
+      <div class="restaurant-result-container">
+          <ul class="restaurants">
+          </ul>
+      </div>
+    </div>
+    `
+  }
+
+  runWhenUserIsSearching (callback) {
+    document.getElementById('query').addEventListener('change', (event) => {
+      callback(event.target.value)
+    })
+  }
+
+  showRestaurants (restaurants) {
+    let html
+    if (restaurants?.length > 0) {
+      html = restaurants.reduce(
+        (carry, restaurant) => carry.concat(`<li class="restaurant"><span class="restaurant__title">${restaurant.title || '-'}</span></li>`), '')
+    } else {
+      html = '<div class="restaurants__not__found">restaurants tidak ditemukan</div>'
+    }
+
+    document.querySelector('.restaurants').innerHTML = html
+
+    document.getElementById('restaurant-search-container').dispatchEvent(new Event('restaurants:searched:updated'))
+  }
+}
+
 describe('Searching restaurants', () => {
   let presenter
   let favoriteRestaurants
+  let view
 
   const searchRestaurants = (query) => {
     const queryElement = document.getElementById('query')
@@ -13,27 +48,15 @@ describe('Searching restaurants', () => {
   }
 
   const setRestaurantSearchContainer = () => {
-    document.body.innerHTML = `
-      <div id="restaurant-search-container">
-        <input id="query" type="text">
-        <div class="restaurant-result-container">
-            <ul class="restaurants">
-              <li class="restaurant">
-                <span class="restaurant__title">Restaurant Satu</span>
-              </li>
-              <li class="restaurant">
-                <span class="restaurant__title">Restaurant Dua</span>
-              </li>
-            </ul>
-        </div>
-      </div>
-    `
+    view = new FavoriteRestaurantSearchView()
+    document.body.innerHTML = view.getTemplate()
   }
 
   const constructPresenter = () => {
     favoriteRestaurants = spyOnAllFunctions(FavoriteIdb)
     presenter = new FavoriteRestaurantSearchPresenter({
-      favoriteRestaurants
+      favoriteRestaurants,
+      view
     })
   }
 
