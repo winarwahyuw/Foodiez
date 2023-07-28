@@ -1,18 +1,19 @@
 class FavoriteRestaurantSearchPresenter {
-  constructor ({ favoriteRestaurants }) {
-    this._listenToSearchRequestByUser()
+  constructor ({ favoriteRestaurants, view }) {
+    this._view = view
     this._favoriteRestaurants = favoriteRestaurants
+    this._listenToSearchRequestByUser()
   }
 
   _listenToSearchRequestByUser () {
-    this._queryElement = document.getElementById('query')
-    this._queryElement.addEventListener('change', (event) => {
-      this._searchRestaurants(event.target.value)
+    this._view.runWhenUserIsSearching((latestQuery) => {
+      this._searchRestaurants(latestQuery)
     })
   }
 
   async _searchRestaurants (latestQuery) {
     this._latestQuery = latestQuery.trim()
+
     let foundRestaurants
     if (this.latestQuery?.length > 0) {
       foundRestaurants = await this._favoriteRestaurants.searchRestaurants(this._latestQuery)
@@ -24,18 +25,7 @@ class FavoriteRestaurantSearchPresenter {
   }
 
   _showFoundRestaurants (restaurants) {
-    let html
-
-    if (restaurants?.length > 0) {
-      html = restaurants?.reduce(
-        (carry, restaurant) => carry.concat(`<li class="restaurant"><span class="restaurant__title">${restaurant.title || '-'}</span></li>`), '')
-    } else {
-      html = '<div class="restaurants__not__found">Restaurant tidak ditemukan</div>'
-    }
-
-    document.querySelector('.restaurants').innerHTML = html
-    document.getElementById('restaurant-search-container')
-      .dispatchEvent(new Event('restaurants:searched:updated'))
+    this._view.showRestaurants(restaurants)
   }
 
   get latestQuery () {
