@@ -2,20 +2,20 @@ import { createExampletItem } from '../../templates/template-creator'
 class FavoriteRestaurantSearchView {
   getTemplate () {
     return `
-    <div id="restaurant-search-container">
-    <input id="query" type="text">
-    <div class="restaurant-result-container">
-        <ul class="restaurants">
-        </ul>
-    </div>
-    </div>
+      <div id="restaurant-search-container">
+        <input id="query" type="text">
+        <div class="restaurant-result-container">
+            <ul class="restaurants">
+            </ul>
+        </div>
+      </div>
     `
   }
 
   getFavoriteRestaurantTemplate () {
     return `
       <div class="content">
-        <h2 class="content__heading">Your Liked Movie</h2>
+        <h2 class="content__heading">Your Liked Restaurant</h2>
         <div id="restaurants" class="restaurants">
         </div>
       </div>
