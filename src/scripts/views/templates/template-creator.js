@@ -81,7 +81,7 @@ const createHandlingPage = (title, message) => `
     <span class="handling-icon"><i class="fa fa-frown-o" aria-hidden="true"></i></span>
     <div class="handling-page-content">
       <h3 class="title my-2">${title}</h3>
-      <p class="message">${message}</p>
+      <p class="message not-found-message">${message}
     </div>
     <div class="handling-page-footer">
       <a class="btn btn-secondary" href="/">Back to Home</a>
