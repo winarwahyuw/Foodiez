@@ -44,7 +44,7 @@ describe('Searching restaurants', () => {
     })
 
     it('should show - when the restaurant returned does not contain a title', (done) => {
-      document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
+      document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
         const movieTitles = document.querySelectorAll('.restaurant__title')
         expect(movieTitles.item(0).textContent).toEqual('-')
 
@@ -59,9 +59,9 @@ describe('Searching restaurants', () => {
     })
 
     it('should show the restaurants found by Favorite Restaurants', (done) => {
-      document.getElementById('restaurant-search-container')
-        .addEventListener('restaurants:searched:updated', () => {
-          expect(document.querySelectorAll('.restaurant').length).toEqual(3)
+      document.getElementById('restaurants')
+        .addEventListener('restaurants:updated', () => {
+          expect(document.querySelectorAll('.restaurant-item').length).toEqual(3)
           done()
         })
 
@@ -77,7 +77,7 @@ describe('Searching restaurants', () => {
     })
 
     it('should show the name of the restaurants found by Favorite restaurants', (done) => {
-      document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
+      document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
         const restaurantTitles = document.querySelectorAll('.restaurant__title')
         expect(restaurantTitles.item(0).textContent).toEqual('Restaurant Xbc')
         expect(restaurantTitles.item(1).textContent).toEqual('ada juga Restaurant Xbcde')
@@ -125,9 +125,9 @@ describe('Searching restaurants', () => {
 
   describe('When no favorite restaurants could be found', () => {
     it('should show the empty message', (done) => {
-      document.getElementById('restaurant-search-container')
-        .addEventListener('restaurants:searched:updated', () => {
-          expect(document.querySelectorAll('.restaurants__not__found')?.length).toEqual(1)
+      document.getElementById('restaurants')
+        .addEventListener('restaurants:updated', () => {
+          expect(document.querySelectorAll('.restaurant-item__not__found')?.length).toEqual(1)
           done()
         })
 
@@ -137,8 +137,8 @@ describe('Searching restaurants', () => {
     })
 
     it('should not show any restaurant', (done) => {
-      document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
-        expect(document.querySelectorAll('.restaurant')?.length).toEqual(0)
+      document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
+        expect(document.querySelectorAll('.restaurant-item')?.length).toEqual(0)
         done()
       })
 

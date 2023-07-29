@@ -1,38 +1,14 @@
-import { createExampletItem } from '../../templates/template-creator'
+import { createExampleItem } from '../../templates/template-creator'
 class FavoriteRestaurantSearchView {
   getTemplate () {
     return `
-      <div id="restaurant-search-container">
-        <input id="query" type="text">
-        <div class="restaurant-result-container">
-            <ul class="restaurants">
-            </ul>
-        </div>
-      </div>
-    `
-  }
-
-  getFavoriteRestaurantTemplate () {
-    return `
-      <div class="content">
-        <h2 class="content__heading">Your Liked Restaurant</h2>
+    <div class="content">
+      <input id="query" type="text">
+      <h2 class="content__heading">Your Liked restaurant</h2>
         <div id="restaurants" class="restaurants">
         </div>
-      </div>
+    </div>
     `
-  }
-
-  showFavoriteRestaurants (restaurants = []) {
-    let html
-    if (restaurants?.length) {
-      html = restaurants.reduce((carry, restaurant) => carry.concat(createExampletItem(restaurant)), '')
-    } else {
-      html = '<div class="restaurant-item__not__found"></div>'
-    }
-
-    document.getElementById('restaurants').innerHTML = html
-
-    document.getElementById('restaurants').dispatchEvent(new Event('restaurants:updated'))
   }
 
   runWhenUserIsSearching (callback) {
@@ -41,18 +17,21 @@ class FavoriteRestaurantSearchView {
     })
   }
 
-  showRestaurants (restaurants) {
+  showFavoriteRestaurants (restaurants = []) {
     let html
-    if (restaurants?.length > 0) {
-      html = restaurants.reduce(
-        (carry, restaurant) => carry.concat(`<li class="restaurant"><span class="restaurant__title">${restaurant.title || '-'}</span></li>`), '')
+    if (restaurants?.length) {
+      html = restaurants.reduce((carry, restaurant) => carry.concat(createExampleItem(restaurant)), '')
     } else {
-      html = '<div class="restaurants__not__found">restaurants tidak ditemukan</div>'
+      html = this._getEmptyRestaurantTemplate()
     }
 
-    document.querySelector('.restaurants').innerHTML = html
+    document.getElementById('restaurants').innerHTML = html
 
-    document.getElementById('restaurant-search-container').dispatchEvent(new Event('restaurants:searched:updated'))
+    document.getElementById('restaurants').dispatchEvent(new Event('restaurants:updated'))
+  }
+
+  _getEmptyRestaurantTemplate () {
+    return '<div class="restaurant-item__not__found">Tidak ada restaurant untuk ditampilkan</div>'
   }
 }
 
