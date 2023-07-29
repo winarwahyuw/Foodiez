@@ -40,48 +40,9 @@ describe('Showing all favorite restaurants', () => {
         favoriteRestaurants
       })
     })
-
-    // it('should render the information that no restaurants have been liked', () => {
-    //   const favoriteRestaurants = spyOnAllFunctions(FavoriteIdb)
-    //   const presenter = new FavoriteRestaurantShowPresenter({
-    //     view,
-    //     favoriteRestaurants
-    //   })
-        
-    //   const restaurants = []
-    //   presenter._displayRestaurants(restaurants)
-       
-    //   expect(document.querySelectorAll('.restaurant-item__not__found').length).toEqual(1)
-    // })
   })
   
   describe('When favorite restaurants exist', () => {
-
-    // it('should render the restaurants', () => {
-    //     const favoriteRestaurants = spyOnAllFunctions(FavoriteIdb)
-    //     const presenter = new FavoriteRestaurantShowPresenter({
-    //       view,
-    //       favoriteRestaurants
-    //     })
-     
-    //     presenter._displayRestaurants([
-    //       {
-    //         id: 11, 
-    //         title: 'X', 
-    //         vote_average: 3, 
-    //         overview: 'Sebuah Restaurant X'
-    //       },
-    //       {
-    //         id: 22, 
-    //         title: 'B', 
-    //         vote_average: 4, 
-    //         overview: 'Sebuah film B'
-    //       },
-    //     ])
-     
-    //     expect(document.querySelectorAll('.restaurant-item').length).toEqual(2);
-    // })
-
     it('should show the restaurants', (done) => {
       document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
         expect(document.querySelectorAll('.restaurant-item').length).toEqual(2)
