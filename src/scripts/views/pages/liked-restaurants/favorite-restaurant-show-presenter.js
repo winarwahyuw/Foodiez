@@ -1,7 +1,8 @@
 class FavoriteRestaurantShowPresenter {
   constructor ({ view, favoriteRestaurants }) {
     this._view = view
-//     this._favoriteRestaurants = favoriteRestaurants
+    this._favoriteRestaurants = favoriteRestaurants
+    this._favoriteRestaurants.getAllRestaurants()
 //     this._showFavoriteRestaurants()
   }
 

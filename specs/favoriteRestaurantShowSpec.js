@@ -1,7 +1,7 @@
 /* eslint-disable */
 import FavoriteRestaurantSearchView from '../src/scripts/views/pages/liked-restaurants/favorite-restaurant-search-view'
 import FavoriteRestaurantShowPresenter from '../src/scripts/views/pages/liked-restaurants/favorite-restaurant-show-presenter'
-// import FavoriteIdb from '../src/scripts/data/favorite.-idb'
+import FavoriteIdb from '../src/scripts/data/favorite.-idb'
 
 describe('Showing all favorite restaurants', () => {
   let view
@@ -16,15 +16,15 @@ describe('Showing all favorite restaurants', () => {
   })
 
   describe('When no restaurants have been liked', () => {
-//     it('should ask for the favorite restaurants', () => {
-//       const favoriteRestaurants = spyOnAllFunctions(FavoriteIdb)
+    it('should ask for the favorite restaurants', () => {
+      const favoriteRestaurants = spyOnAllFunctions(FavoriteIdb)
 
-//       new FavoriteRestaurantShowPresenter({
-//         view,
-//         favoriteRestaurants
-//       })
-//       expect(favoriteRestaurants.getAllRestaurants).toHaveBeenCalledTimes(1)
-//     })
+      new FavoriteRestaurantShowPresenter({
+        view,
+        favoriteRestaurants
+      })
+      expect(favoriteRestaurants.getAllRestaurants).toHaveBeenCalledTimes(1)
+    })
 
 //     it('should show the information that no restaurants have been liked', (done) => {
 //       document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
@@ -42,10 +42,10 @@ describe('Showing all favorite restaurants', () => {
 //     })
 
     it('should render the information that no restaurants have been liked', () => {
-//       const favoriteRestaurants = spyOnAllFunctions(FavoriteIdb)
+      const favoriteRestaurants = spyOnAllFunctions(FavoriteIdb)
       const presenter = new FavoriteRestaurantShowPresenter({
         view,
-//         favoriteRestaurants
+        favoriteRestaurants
       })
         
       const restaurants = []

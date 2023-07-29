@@ -2244,10 +2244,22 @@ var FavoriteIdb = {
     }))();
   },
   searchRestaurants: function searchRestaurants(query) {
+    var _this = this;
     return favorite_idb_asyncToGenerator( /*#__PURE__*/favorite_idb_regeneratorRuntime().mark(function _callee5() {
       return favorite_idb_regeneratorRuntime().wrap(function _callee5$(_context5) {
         while (1) switch (_context5.prev = _context5.next) {
           case 0:
+            _context5.next = 2;
+            return _this.getAllRestaurants();
+          case 2:
+            return _context5.abrupt("return", _context5.sent.filter(function (movie) {
+              var loweredCaseMovieTitle = (movie.title || '-').toLowerCase();
+              var jammedMovieTitle = loweredCaseMovieTitle.replace(/\s/g, '');
+              var loweredCaseQuery = query.toLowerCase();
+              var jammedQuery = loweredCaseQuery.replace(/\s/g, '');
+              return jammedMovieTitle.indexOf(jammedQuery) !== -1;
+            }));
+          case 3:
           case "end":
             return _context5.stop();
         }
