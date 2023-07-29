@@ -26,20 +26,20 @@ describe('Showing all favorite restaurants', () => {
       expect(favoriteRestaurants.getAllRestaurants).toHaveBeenCalledTimes(1)
     })
 
-//     it('should show the information that no restaurants have been liked', (done) => {
-//       document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
-//         expect(document.querySelectorAll('.restaurant-item__not__found').length).toEqual(1)
-//         done()
-//       })
+    it('should show the information that no restaurants have been liked', (done) => {
+      document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
+        expect(document.querySelectorAll('.restaurant-item__not__found').length).toEqual(1)
+        done()
+      })
      
-//       const favoriteRestaurants = spyOnAllFunctions(FavoriteIdb)
-//       favoriteRestaurants.getAllRestaurants.and.returnValues([])
+      const favoriteRestaurants = spyOnAllFunctions(FavoriteIdb)
+      favoriteRestaurants.getAllRestaurants.and.returnValues([])
      
-//       new FavoriteRestaurantShowPresenter({
-//         view,
-//         favoriteRestaurants
-//       })
-//     })
+      new FavoriteRestaurantShowPresenter({
+        view,
+        favoriteRestaurants
+      })
+    })
 
     it('should render the information that no restaurants have been liked', () => {
       const favoriteRestaurants = spyOnAllFunctions(FavoriteIdb)

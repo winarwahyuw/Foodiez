@@ -3,6 +3,7 @@ class FavoriteRestaurantShowPresenter {
     this._view = view
     this._favoriteRestaurants = favoriteRestaurants
     this._favoriteRestaurants.getAllRestaurants()
+    this._displayRestaurants(restaurants)
 //     this._showFavoriteRestaurants()
   }
 

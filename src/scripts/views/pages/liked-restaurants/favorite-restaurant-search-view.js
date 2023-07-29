@@ -23,6 +23,8 @@ class FavoriteRestaurantSearchView {
 
   showFavoriteRestaurants (restaurants) {
     document.getElementById('restaurants').innerHTML = '<div class="restaurant-item__not__found"></div>'
+
+    document.getElementById('restaurants').dispatchEvent(new Event('restaurants:updated'))
   }
 
   runWhenUserIsSearching (callback) {
