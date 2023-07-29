@@ -43,25 +43,19 @@ describe('Searching restaurants', () => {
       expect(FavoriteIdb.searchRestaurants).toHaveBeenCalledWith('Restaurant X')
     })
 
-    it('should show the found retaurants', () => {
-      presenter._showFoundRestaurants([{ id: 1 }])
-      const foundRestaurants = document.querySelectorAll('.restaurant')
-      expect(foundRestaurants.length).toEqual(1)
-    })
+    it('should show - when the restaurant returned does not contain a title', (done) => {
+      document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
+        const movieTitles = document.querySelectorAll('.restaurant__title')
+        expect(movieTitles.item(0).textContent).toEqual('-')
 
-    it('should show the title of the found restaurants', () => {
-      presenter._showFoundRestaurants([{ id: 1, title: 'Satu' }])
-      expect(document.querySelectorAll('.restaurant__title').item(0).textContent).toEqual('Satu')
-      presenter._showFoundRestaurants([{ id: 1, title: 'Satu' }, { id: 2, title: 'Dua' }])
+        done()
+      })
 
-      const restaurantTitles = document.querySelectorAll('.restaurant__title')
-      expect(restaurantTitles.item(0).textContent).toEqual('Satu')
-      expect(restaurantTitles.item(1).textContent).toEqual('Dua')
-    })
+      favoriteRestaurants.searchRestaurants.withArgs('Restaurant X').and.returnValues([
+        { id: 444 }
+      ])
 
-    it('should show - for found restaurant without title', () => {
-      presenter._showFoundRestaurants([{ id: 1 }])
-      expect(document.querySelectorAll('.restaurant__title').item(0).textContent).toEqual('-')
+      searchRestaurants('Restaurant X')
     })
 
     it('should show the restaurants found by Favorite Restaurants', (done) => {
