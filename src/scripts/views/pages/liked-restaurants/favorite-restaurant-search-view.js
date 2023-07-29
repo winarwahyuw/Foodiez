@@ -11,6 +11,20 @@ class FavoriteRestaurantSearchView {
     `
   }
 
+  getFavoriteRestaurantTemplate () {
+    return `
+      <div class="content">
+        <h2 class="content__heading">Your Liked Movie</h2>
+        <div id="restaurants" class="restaurants">
+        </div>
+      </div>
+    `
+  }
+
+  showFavoriteRestaurants (restaurants) {
+    document.getElementById('restaurants').innerHTML = '<div class="restaurant-item__not__found"></div>'
+  }
+
   runWhenUserIsSearching (callback) {
     document.getElementById('query').addEventListener('change', (event) => {
       callback(event.target.value)
