@@ -35,12 +35,12 @@ const FavoriteIdb = {
   },
 
   async searchRestaurants(query) {
-    return (await this.getAllRestaurants()).filter((movie) => {
-      const loweredCaseMovieTitle = (movie.title || '-').toLowerCase();
-      const jammedMovieTitle = loweredCaseMovieTitle.replace(/\s/g, '');
-      const loweredCaseQuery = query.toLowerCase();
-      const jammedQuery = loweredCaseQuery.replace(/\s/g, '');
-      return jammedMovieTitle.indexOf(jammedQuery) !== -1;
+    return (await this.getAllRestaurants()).filter((restaurant) => {
+      const loweredCaseMovieTitle = (restaurant.title || '-').toLowerCase()
+      const jammedMovieTitle = loweredCaseMovieTitle.replace(/\s/g, '')
+      const loweredCaseQuery = query.toLowerCase()
+      const jammedQuery = loweredCaseQuery.replace(/\s/g, '')
+      return jammedMovieTitle.indexOf(jammedQuery) !== -1
     })
   }
 }
