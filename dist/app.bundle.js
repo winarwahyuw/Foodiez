@@ -1658,7 +1658,11 @@ var TheRestaurantDbSource = /*#__PURE__*/function () {
 ;// CONCATENATED MODULE: ./src/scripts/views/templates/template-creator.js
 
 var createRestaurantItem = function createRestaurantItem(restaurant) {
-  return "\n  <div class=\"card d-flex-col\">\n    <img class=\"card-img\" src=\"".concat(api_endpoint.IMAGE_SMALL(restaurant.pictureId), "\" alt=\"Gambar Restoran\">\n    <div class=\"card-body\">\n        <p class=\"title\">").concat(restaurant.name, "</p>\n        <p>").concat(restaurant.city, "</p>\n        <p><i class=\"fa fa-star icon-secondary\"></i> ").concat(restaurant.rating, "</p>\n    </div>\n    <div class=\"card-footer d-flex-row\">\n        <a class=\"btn btn-secondary\" href=\"#/detail/").concat(restaurant.id, "\">Check this Out</a>\n    </div>\n  </div>\n");
+  return "\n  <div class=\"card d-flex-col\" id=\"restaurant-item\">\n    <img class=\"card-img\" src=\"".concat(api_endpoint.IMAGE_SMALL(restaurant.pictureId), "\" alt=\"Gambar Restoran\">\n    <div class=\"card-body\">\n        <p class=\"title\">").concat(restaurant.name, "</p>\n        <p>").concat(restaurant.city, "</p>\n        <p><i class=\"fa fa-star icon-secondary\"></i> ").concat(restaurant.rating, "</p>\n    </div>\n    <div class=\"card-footer d-flex-row restaurant-detail-footer\">\n        <a class=\"btn btn-secondary\" id=\"restaurant-detail\" href=\"#/detail/").concat(restaurant.id, "\">Check this Out</a>\n    </div>\n  </div>\n");
+};
+// untuk kebutuhan testing
+var createExampleItem = function createExampleItem(restaurant) {
+  return "\n<div class=\"restaurant-item\">\n    <div class=\"restaurant-item__header\">\n      <img class=\"restaurant-item__header__poster\" alt=\"".concat(restaurant.title || '-', "\"\n           src='https://picsum.photos/id/666/800/450?grayscale'>\n      <div class=\"restaurant-item__header__rating\">\n        <p>\u2B50\uFE0F<span class=\"restaurant-item__header__rating__score\">").concat(restaurant.vote_average || '-', "</span></p>\n      </div>\n    </div>\n    <div class=\"restaurant-item__content\">\n      <h3 class=\"restaurant__title\"><a href=\"/#/detail/").concat(restaurant.id, "\">").concat(restaurant.title || '-', "</a></h3>\n      <p>").concat(restaurant.overview || '-', "</p>\n    </div>\n  </div>\n");
 };
 var createRestaurantDetail = function createRestaurantDetail(restaurant) {
   return "\n    <div class='detail-header'>\n        <h3 class=\"my-2\">Information</h3>\n        <p>Rating ".concat(restaurant.rating, " <i class=\"fa fa-star icon-secondary\"></i></p>\n        <p>").concat(restaurant.address, "</p>\n        <p>").concat(restaurant.city, "</p>\n        <p class=\"my-2\">Categories : ").concat(restaurant.categories.map(function (category) {
@@ -1682,7 +1686,7 @@ var createUnlikeRestaurantButtonTemplate = function createUnlikeRestaurantButton
   return "\n  <button aria-label=\"unlike this restaurant\" id=\"likeButton\" class=\"like\">\n    <i class=\"fa fa-heart\" aria-hidden=\"true\"></i>\n  </button>\n";
 };
 var createHandlingPage = function createHandlingPage(title, message) {
-  return "\n  <div class=\"handling-page\">\n    <span class=\"handling-icon\"><i class=\"fa fa-frown-o\" aria-hidden=\"true\"></i></span>\n    <div class=\"handling-page-content\">\n      <h3 class=\"title my-2\">".concat(title, "</h3>\n      <p class=\"message\">").concat(message, "</p>\n    </div>\n    <div class=\"handling-page-footer\">\n      <a class=\"btn btn-secondary\" href=\"/\">Back to Home</a>\n    </div>\n  </div>\n");
+  return "\n  <div class=\"handling-page\">\n    <span class=\"handling-icon\"><i class=\"fa fa-frown-o\" aria-hidden=\"true\"></i></span>\n    <div class=\"handling-page-content\">\n      <h3 class=\"title my-2\">".concat(title, "</h3>\n      <p class=\"message not-found-message\">").concat(message, "\n    </div>\n    <div class=\"handling-page-footer\">\n      <a class=\"btn btn-secondary\" href=\"/\">Back to Home</a>\n    </div>\n  </div>\n");
 };
 
 ;// CONCATENATED MODULE: ./src/scripts/views/pages/home.js
