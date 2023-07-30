@@ -162,7 +162,7 @@ var Detail = {
               skipLink.blur();
             });
             heroImg.setAttribute('src', "".concat(_globals_api_endpoint__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z.IMAGE_LARGE(restaurant.pictureId)));
-            sourceHeroImg.setAttribute('srcset', "".concat(_globals_api_endpoint__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z.IMAGE_LARGE(restaurant.pictureId)));
+            sourceHeroImg.setAttribute('srcset', "".concat(_globals_api_endpoint__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z.IMAGE_SMALL(restaurant.pictureId)));
             restaurantName.append(restaurant.name);
             container.innerHTML = (0,_templates_template_creator__WEBPACK_IMPORTED_MODULE_4__/* .createRestaurantDetail */ .p5)(restaurant);
             restaurant.customerReviews.map(function (review) {

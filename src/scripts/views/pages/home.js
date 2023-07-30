@@ -7,7 +7,7 @@ const Home = {
     <div class="jumbotron" id="jumbotron-home">
       <picture>
         <source media="(max-width: 600px)" srcset="./images/hero-image_2-small.jpg">
-        <img src="./images/hero-image_2-large.jpg" loading="lazy" id="hero-img" alt="Hero Image" class="img hero-img"/>
+        <img src="./images/hero-image_2-large.jpg" id="hero-img" alt="Hero Image" class="img hero-img"/>
       </picture>
 
       <div class="overlay">

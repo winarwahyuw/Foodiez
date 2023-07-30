@@ -49,16 +49,17 @@ Scenario('searching restaurants', async ({ I }) => {
     I.amOnPage('')
   }
 
+  I.amOnPage('#/favorite')
   I.waitForElement('#query')
+
   const searchQuery = titles[1].substring(1, 3)
   const matchingRestaurants = titles.filter(
     (title) => title.indexOf(searchQuery) !== -1
   )
+
   I.fillField('#query', searchQuery)
   I.pressKey('Enter')
-  I.waitForElement('#fav-restaurants')
-  I.waitForElement('#restaurant-item')
-  // I.wait(10)
+  I.waitForElement('#fav-restaurants #restaurant-item')
 
   const visibleLikedRestaurants = await I.grabNumberOfVisibleElements('#fav-restaurants #restaurant-item')
 
