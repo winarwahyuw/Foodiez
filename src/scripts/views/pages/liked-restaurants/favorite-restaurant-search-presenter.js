@@ -16,7 +16,7 @@ class FavoriteRestaurantSearchPresenter {
 
     let foundRestaurants
     if (this.latestQuery?.length > 0) {
-      foundRestaurants = await this._favoriteRestaurants.searchRestaurants(this._latestQuery)
+      foundRestaurants = await this._favoriteRestaurants.searchRestaurant(this._latestQuery)
     } else {
       foundRestaurants = await this._favoriteRestaurants.getAllRestaurants()
     }

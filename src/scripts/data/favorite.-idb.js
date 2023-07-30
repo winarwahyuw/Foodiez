@@ -34,15 +34,15 @@ const FavoriteIdb = {
     return (await dbPromise).delete(OBJECT_STORE_NAME, id)
   },
 
-  async searchRestaurants(query) {
+  async searchRestaurant (query) {
     return (await this.getAllRestaurants()).filter((restaurant) => {
-      const loweredCaseMovieTitle = (restaurant.title || '-').toLowerCase()
-      const jammedMovieTitle = loweredCaseMovieTitle.replace(/\s/g, '')
+      const loweredCaseRestaurantTitle = (restaurant.name || '-').toLowerCase()
+      const jammedRestaurantTitle = loweredCaseRestaurantTitle.replace(/\s/g, '')
       const loweredCaseQuery = query.toLowerCase()
       const jammedQuery = loweredCaseQuery.replace(/\s/g, '')
-      return jammedMovieTitle.indexOf(jammedQuery) !== -1
+      return jammedRestaurantTitle.indexOf(jammedQuery) !== -1
     })
-  }
+  },
 }
 
 export default FavoriteIdb

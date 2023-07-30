@@ -35,13 +35,13 @@ const favoriteRestaurantArray = {
   searchRestaurant(query) {
     return this.getAllRestaurants()
       .filter((restaurant) => {
-        const loweredCaseMovieTitle = (restaurant.title || '-').toLowerCase();
-        const jammedMovieTitle = loweredCaseMovieTitle.replace(/\s/g, '');
+        const loweredCaseRestaurantTitle = (restaurant.name || '-').toLowerCase()
+        const jammedMovieTitle = loweredCaseRestaurantTitle.replace(/\s/g, '')
 
-        const loweredCaseQuery = query.toLowerCase();
-        const jammedQuery = loweredCaseQuery.replace(/\s/g, '');
+        const loweredCaseQuery = query.toLowerCase()
+        const jammedQuery = loweredCaseQuery.replace(/\s/g, '')
 
-        return jammedMovieTitle.indexOf(jammedQuery) !== -1;
+        return jammedMovieTitle.indexOf(jammedQuery) !== -1
       });
   }
 }

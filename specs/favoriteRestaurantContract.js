@@ -44,7 +44,7 @@ const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
       ])
   })
 
-  it('should handle request to remove a restaurant even though the movie has not been added', async () => {
+  it('should handle request to remove a restaurant even though the restaurant has not been added', async () => {
     favoriteRestaurant.putRestaurant({ id: 1 })
     favoriteRestaurant.putRestaurant({ id: 2 })
     favoriteRestaurant.putRestaurant({ id: 3 })
@@ -60,15 +60,15 @@ const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
   })
 
   it('should be able to search for restaurants', async () => {
-    favoriteRestaurant.putRestaurant({ id: 1, title: 'Restaurant X' })
-    favoriteRestaurant.putRestaurant({ id: 2, title: 'Restaurant B' })
-    favoriteRestaurant.putRestaurant({ id: 3, title: 'Restaurant Xbc' })
-    favoriteRestaurant.putRestaurant({ id: 4, title: 'ini mah Restaurant Xbcd' })
+    favoriteRestaurant.putRestaurant({ id: 1, name: 'Restaurant X' })
+    favoriteRestaurant.putRestaurant({ id: 2, name: 'Restaurant B' })
+    favoriteRestaurant.putRestaurant({ id: 3, name: 'Restaurant Xbc' })
+    favoriteRestaurant.putRestaurant({ id: 4, name: 'ini mah Restaurant Xbcd' })
 
-    expect(await favoriteRestaurant.searchRestaurants('Restaurant X')).toEqual([
-      { id: 1, title: 'Restaurant X' },
-      { id: 3, title: 'Restaurant Xbc' },
-      { id: 4, title: 'ini mah Restaurant Xbcd' }
+    expect(await favoriteRestaurant.searchRestaurant('Restaurant X')).toEqual([
+      { id: 1, name: 'Restaurant X' },
+      { id: 3, name: 'Restaurant Xbc' },
+      { id: 4, name: 'ini mah Restaurant Xbcd' }
     ])
   })
 }

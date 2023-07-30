@@ -40,18 +40,18 @@ describe('Searching restaurants', () => {
 
     it('should ask the model to search for liked restaurants', () => {
       searchRestaurants('Restaurant X')
-      expect(FavoriteIdb.searchRestaurants).toHaveBeenCalledWith('Restaurant X')
+      expect(FavoriteIdb.searchRestaurant).toHaveBeenCalledWith('Restaurant X')
     })
 
     it('should show - when the restaurant returned does not contain a title', (done) => {
       document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
-        const movieTitles = document.querySelectorAll('.restaurant__title')
-        expect(movieTitles.item(0).textContent).toEqual('-')
+        const restaurantTitles = document.querySelectorAll('#restaurant-name')
+        expect(restaurantTitles.item(0).textContent).toEqual('-')
 
         done()
       })
 
-      favoriteRestaurants.searchRestaurants.withArgs('Restaurant X').and.returnValues([
+      favoriteRestaurants.searchRestaurant.withArgs('Restaurant X').and.returnValues([
         { id: 444 }
       ])
 
@@ -65,12 +65,12 @@ describe('Searching restaurants', () => {
           done()
         })
 
-      favoriteRestaurants.searchRestaurants.withArgs('Restaurant X')
+      favoriteRestaurants.searchRestaurant.withArgs('Restaurant X')
         .and
         .returnValues([
-          { id: 111, title: 'Restaurant Xbc' },
-          { id: 222, title: 'ada juga Restaurant Xbcde' },
-          { id: 333, title: 'ini juga boleh Restaurant X' }
+          { id: 111, name: 'Restaurant Xbc' },
+          { id: 222, name: 'ada juga Restaurant Xbcde' },
+          { id: 333, name: 'ini juga boleh Restaurant X' }
         ])
 
       searchRestaurants('Restaurant X')
@@ -78,19 +78,19 @@ describe('Searching restaurants', () => {
 
     it('should show the name of the restaurants found by Favorite restaurants', (done) => {
       document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
-        const restaurantTitles = document.querySelectorAll('.restaurant__title')
+        const restaurantTitles = document.querySelectorAll('#restaurant-name')
         expect(restaurantTitles.item(0).textContent).toEqual('Restaurant Xbc')
         expect(restaurantTitles.item(1).textContent).toEqual('ada juga Restaurant Xbcde')
         expect(restaurantTitles.item(2).textContent).toEqual('ini juga boleh Restaurant X')
         done()
       })
 
-      favoriteRestaurants.searchRestaurants.withArgs('Restaurant X')
+      favoriteRestaurants.searchRestaurant.withArgs('Restaurant X')
         .and
         .returnValues([
-          { id: 111, title: 'Restaurant Xbc' },
-          { id: 222, title: 'ada juga Restaurant Xbcde' },
-          { id: 333, title: 'ini juga boleh Restaurant X' }
+          { id: 111, name: 'Restaurant Xbc' },
+          { id: 222, name: 'ada juga Restaurant Xbcde' },
+          { id: 333, name: 'ini juga boleh Restaurant X' }
         ])
 
       searchRestaurants('Restaurant X')
@@ -112,7 +112,7 @@ describe('Searching restaurants', () => {
     it('should ask the model to search for restaurants', () => {
       searchRestaurants('Restaurant X')
 
-      expect(favoriteRestaurants.searchRestaurants)
+      expect(favoriteRestaurants.searchRestaurant)
         .toHaveBeenCalledWith('Restaurant X')
     })
 
@@ -131,7 +131,7 @@ describe('Searching restaurants', () => {
           done()
         })
 
-      favoriteRestaurants.searchRestaurants.withArgs('Restaurant X').and.returnValues([])
+      favoriteRestaurants.searchRestaurant.withArgs('Restaurant X').and.returnValues([])
 
       searchRestaurants('Restaurant X')
     })
@@ -142,7 +142,7 @@ describe('Searching restaurants', () => {
         done()
       })
 
-      favoriteRestaurants.searchRestaurants.withArgs('Restaurant X').and.returnValues([])
+      favoriteRestaurants.searchRestaurant.withArgs('Restaurant X').and.returnValues([])
       searchRestaurants('Restaurant X')
     })
   })

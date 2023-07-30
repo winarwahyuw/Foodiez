@@ -53,15 +53,15 @@ describe('Showing all favorite restaurants', () => {
       favoriteRestaurants.getAllRestaurants.and.returnValues([
         {
             id: 11,
-            title: 'Kafe Kita',
-            vote_average: 3,
-            overview: 'Sebuah Restaurant X'
+            name: 'Kafe Kita',
+            rating: 3,
+            city: 'Sebuah Restaurant X'
           },
           {
             id: 22,
-            title: 'B',
-            vote_average: 4,
-            overview: 'Sebuah Resto B'
+            name: 'B',
+            rating: 4,
+            city: 'Sebuah Resto B'
           }
       ])
 

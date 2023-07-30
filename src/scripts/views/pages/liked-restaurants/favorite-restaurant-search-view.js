@@ -1,4 +1,4 @@
-import { createExampleItem } from '../../templates/template-creator'
+import { createRestaurantItem } from '../../templates/template-creator'
 class FavoriteRestaurantSearchView {
   getTemplate () {
     return `
@@ -20,7 +20,7 @@ class FavoriteRestaurantSearchView {
   showFavoriteRestaurants (restaurants = []) {
     let html
     if (restaurants?.length) {
-      html = restaurants.reduce((carry, restaurant) => carry.concat(createExampleItem(restaurant)), '')
+      html = restaurants.reduce((carry, restaurant) => carry.concat(createRestaurantItem(restaurant)), '')
     } else {
       html = this._getEmptyRestaurantTemplate()
     }

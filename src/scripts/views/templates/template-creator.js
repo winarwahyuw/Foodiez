@@ -3,28 +3,12 @@ const createRestaurantItem = (restaurant) => `
   <div class="card d-flex-col restaurant-item" id="restaurant-item">
     <img class="card-img" src="${API_ENDPOINT.IMAGE_SMALL(restaurant.pictureId)}" alt="Gambar Restoran">
     <div class="card-body">
-        <p class="title">${restaurant.name}</p>
-        <p>${restaurant.city}</p>
-        <p><i class="fa fa-star icon-secondary"></i> ${restaurant.rating}</p>
+        <p class="title" id="restaurant-name">${restaurant.name || '-'}</p>
+        <p>${restaurant.city || '-'}</p>
+        <p><i class="fa fa-star icon-secondary"></i> ${restaurant.rating || '-'}</p>
     </div>
     <div class="card-footer d-flex-row restaurant-detail-footer">
         <a class="btn btn-secondary" id="restaurant-detail" href="#/detail/${restaurant.id}">Check this Out</a>
-    </div>
-  </div>
-`
-// untuk kebutuhan testing
-const createExampleItem = (restaurant) => `
-<div class="restaurant-item">
-    <div class="restaurant-item__header">
-      <img class="restaurant-item__header__poster" alt="${restaurant.title || '-'}"
-           src='https://picsum.photos/id/666/800/450?grayscale'>
-      <div class="restaurant-item__header__rating">
-        <p>⭐️<span class="restaurant-item__header__rating__score">${restaurant.vote_average || '-'}</span></p>
-      </div>
-    </div>
-    <div class="restaurant-item__content">
-      <h3 class="restaurant__title"><a href="/#/detail/${restaurant.id}">${restaurant.title || '-'}</a></h3>
-      <p>${restaurant.overview || '-'}</p>
     </div>
   </div>
 `
@@ -96,6 +80,5 @@ export {
   createUnlikeRestaurantButtonTemplate,
   createReviews,
   createAlert,
-  createHandlingPage,
-  createExampleItem
+  createHandlingPage
 }
