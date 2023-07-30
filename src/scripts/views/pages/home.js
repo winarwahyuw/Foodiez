@@ -11,7 +11,7 @@ const Home = {
         <div class="form">
           <input type="text" placeholder="Restaurant name.." name="query" id="query" value="" class="form-input">
           <button id="search-restaurant" type="button" class="btn-outline-primary">SEARCH</button>
-      </div>
+        </div>
       </div>
     </div>
 
@@ -48,6 +48,7 @@ const Home = {
 
     <div class="container hide" id="search-results-container">
       <div class="search-results" id="search-results-content"></div>
+      <div id="search-not-found"></div>
     </div>
     `
   },
@@ -62,6 +63,7 @@ const Home = {
     const searchResultContent = document.getElementById('search-results-content')
     const searchButton = document.getElementById('search-restaurant')
     const query = document.getElementById('query')
+    const searchNotFound = document.getElementById('search-not-found')
 
     skipLink.addEventListener('click', (e) => {
       e.preventDefault()
@@ -76,27 +78,34 @@ const Home = {
 
     searchButton.addEventListener('click', async (e) => {
       e.preventDefault()
-      const searchKey = query.value
-      const searchResults = await TheRestaurantDbSource.searchRestaurant(searchKey)
-      console.log(searchResults)
-
-      searchResultContainer.classList.remove('hide')
-      content.classList.toggle('hide')
-      searchResults?.length > 0 ? searchResults.forEach((resto) => { searchResultContent.innerHTML += createRestaurantItem(resto) }) : searchResultContainer.innerHTML = createHandlingPage('SORRY...', 'The restaurant you were looking is not found')
+      onSearch()
     })
 
     query.addEventListener('keypress', async (e) => {
       if (e.key === 'Enter') {
         e.preventDefault()
-        const searchKey = query.value
-        const searchResults = await TheRestaurantDbSource.searchRestaurant(searchKey)
-        console.log(searchResults)
-
-        searchResultContainer.classList.remove('hide')
-        content.classList.toggle('hide')
-        searchResults?.length > 0 ? searchResults.forEach((resto) => { searchResultContent.innerHTML += createRestaurantItem(resto) }) : searchResultContainer.innerHTML = createHandlingPage('SORRY...', 'The restaurant you were looking is not found')
+        onSearch()
       }
     })
+
+    const onSearch = async () => {
+      const searchKey = query.value
+      const searchResults = await TheRestaurantDbSource.searchRestaurant(searchKey)
+
+      searchResultContainer.classList.remove('hide')
+      content.classList.add('hide')
+
+      if (searchResults?.length > 0) {
+        searchResultContent.classList.remove('hide')
+        searchNotFound.classList.toggle('hide')
+        searchResults.forEach((resto) => { searchResultContent.innerHTML += createRestaurantItem(resto) })
+      } else {
+        searchResultContent.classList.toggle('hide')
+        searchNotFound.classList.remove('hide')
+        searchNotFound.innerHTML = createHandlingPage('SORRY...', 'The restaurant you were looking is not found')
+        searchResultContent.innerHTML = ''
+      }
+    }
 
     function scrollLeft () {
       setTimeout(() => {
