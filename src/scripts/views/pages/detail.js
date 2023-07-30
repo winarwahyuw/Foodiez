@@ -67,7 +67,7 @@ const Detail = {
       })
 
       heroImg.setAttribute('src', `${API_ENDPOINT.IMAGE_LARGE(restaurant.pictureId)}`)
-      sourceHeroImg.setAttribute('srcset', `${API_ENDPOINT.IMAGE_LARGE(restaurant.pictureId)}`)
+      sourceHeroImg.setAttribute('srcset', `${API_ENDPOINT.IMAGE_SMALL(restaurant.pictureId)}`)
 
       restaurantName.append(restaurant.name)
       container.innerHTML = createRestaurantDetail(restaurant)

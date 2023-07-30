@@ -7,8 +7,8 @@ const Favorite = {
     return `
       <div class="jumbotron" id="jumbotron-favorite">
         <picture>
-          <source media="(max-width: 600px)" srcset="./images/heros/hero-image_1.jpg">
-          <img src="./images/heros/hero-image_1.jpg" loading="lazy" id="hero-img" alt="Hero Image" class="img hero-img"/>
+          <source media="(max-width: 600px)" srcset="./images/hero-image_1-small.jpg">
+          <img src="./images/hero-image_1-large.jpg" loading="lazy" id="hero-img" alt="Hero Image" class="img hero-img"/>
         </picture>
 
         <div class="overlay">
@@ -69,7 +69,6 @@ const Favorite = {
 
       const searchFavRestaurant = searchResults.filter(searchResult => restaurants.some(restaurant => searchResult.id === restaurant.id))
 
-      favContainer.innerHTML = ''
       if (searchFavRestaurant?.length > 0) {
         content.classList.remove('hide')
         searchResultContainer.classList.toggle('hide')
@@ -78,6 +77,7 @@ const Favorite = {
         searchResultContainer.classList.remove('hide')
         content.classList.toggle('hide')
         searchNotFound.innerHTML = createHandlingPage('SORRY...', 'The restaurant you were looking is not found')
+        favContainer.innerHTML = ''
       }
     }
   }

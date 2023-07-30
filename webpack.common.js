@@ -66,11 +66,11 @@ module.exports = {
       patterns: [
         {
           from: path.resolve(__dirname, 'src/public/images/'),
-          to: path.resolve(__dirname, 'dist/images'),
-          globOptions: {
-            // CopyWebpackPlugin mengabaikan berkas yang berada di dalam folder images
-            ignore: ['**/images/**']
-          }
+          to: path.resolve(__dirname, 'dist/images')
+          // globOptions: {
+          //   // CopyWebpackPlugin mengabaikan berkas yang berada di dalam folder images
+          //   ignore: ['**/images/**']
+          // }
         },
         {
           from: path.resolve(__dirname, 'src/public/icons'),
