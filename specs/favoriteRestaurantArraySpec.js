@@ -36,12 +36,12 @@ const favoriteRestaurantArray = {
     return this.getAllRestaurants()
       .filter((restaurant) => {
         const loweredCaseRestaurantTitle = (restaurant.name || '-').toLowerCase()
-        const jammedMovieTitle = loweredCaseRestaurantTitle.replace(/\s/g, '')
+        const jammedRestaurantTitle = loweredCaseRestaurantTitle.replace(/\s/g, '')
 
         const loweredCaseQuery = query.toLowerCase()
         const jammedQuery = loweredCaseQuery.replace(/\s/g, '')
 
-        return jammedMovieTitle.indexOf(jammedQuery) !== -1
+        return jammedRestaurantTitle.indexOf(jammedQuery) !== -1
       });
   }
 }
