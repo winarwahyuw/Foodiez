@@ -16,10 +16,10 @@ Scenario('liking one restaurant', async ({ I }) => {
   I.see('No favorite restaurant found', '.handling-page')
 
   I.amOnPage('')
-  I.seeElement('#popular #restaurant-item .title')
+  I.seeElement('#restaurant-name')
 
   const firstRestaurantButton = locate('#popular #restaurant-item a').first()
-  const firstRestaurantTitle = await I.grabTextFrom(locate('#popular #restaurant-item .title').first())
+  const firstRestaurantTitle = await I.grabTextFrom(locate('#restaurant-name').first())
   I.click(firstRestaurantButton)
 
   I.seeElement('#likeButton')
@@ -27,7 +27,7 @@ Scenario('liking one restaurant', async ({ I }) => {
 
   I.amOnPage('#/favorite')
   I.seeElement('#content-favorite #restaurant-item')
-  const favRestaurantTitle = await I.grabTextFrom('#restaurant-item .title')
+  const favRestaurantTitle = await I.grabTextFrom('#restaurant-name')
   assert.strictEqual(firstRestaurantTitle, favRestaurantTitle)
 })
 
@@ -35,7 +35,7 @@ Scenario('searching restaurants', async ({ I }) => {
   I.see('No favorite restaurant found', '.handling-page')
 
   I.amOnPage('')
-  I.seeElement('#popular #restaurant-item .title')
+  I.seeElement('#restaurant-name')
 
   const titles = []
 
@@ -62,7 +62,7 @@ Scenario('searching restaurants', async ({ I }) => {
   assert.strictEqual(matchingRestaurants.length, visibleLikedRestaurants)
 
   matchingRestaurants.forEach(async (title, index) => {
-    const visibleTitle = await I.grabTextFrom(locate('#fav-restaurants #restaurant-item .title').at(index + 1))
+    const visibleTitle = await I.grabTextFrom(locate('#restaurant-name').at(index + 1))
     assert.strictEqual(title, visibleTitle)
   })
 })
