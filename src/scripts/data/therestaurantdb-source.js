@@ -7,10 +7,10 @@ class TheRestaurantDbSource {
     return responseJson.error ? 'Not found restaurant' : responseJson.restaurants
   }
 
-  static async searchRestaurant () {
-    const response = await fetch(API_ENDPOINT.SEARCH)
+  static async searchRestaurant (query) {
+    const response = await fetch(API_ENDPOINT.SEARCH(query))
     const responseJson = await response.json()
-    return responseJson.results
+    return responseJson.error ? 'Not found restaurant' : responseJson.restaurants
   }
 
   static async detailRestaurant (id) {

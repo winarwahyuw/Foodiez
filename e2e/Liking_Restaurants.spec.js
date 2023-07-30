@@ -48,19 +48,19 @@ Scenario('searching restaurants', async ({ I }) => {
   }
 
   I.amOnPage('#/favorite')
-  I.seeElement('#content-favorite #restaurant-item')
+  I.seeElement('#query')
 
   const searchQuery = titles[1].substring(1, 5)
   const matchingRestaurants = titles.filter((title) => title.indexOf(searchQuery) !== -1)
 
-  I.fillField('#content-favorite', searchQuery)
+  I.fillField('#query', searchQuery)
   I.pressKey('Enter')
 
   console.log(titles)
   console.log(matchingRestaurants)
   I.seeElement('#fav-restaurants #restaurant-item')
-  // const visibleLikedRestaurants = await I.grabNumberOfVisibleElements('#fav-restaurants #restaurant-item')
-  // assert.strictEqual(matchingRestaurants.length, visibleLikedRestaurants)
+  const visibleLikedRestaurants = await I.grabNumberOfVisibleElements('#restaurant-item')
+  assert.strictEqual(matchingRestaurants.length, visibleLikedRestaurants)
 
   // matchingMovies.forEach(async (title, index) => {
   //   const visibleTitle = await I.grabTextFrom(locate('.movie__title').at(index + 1));

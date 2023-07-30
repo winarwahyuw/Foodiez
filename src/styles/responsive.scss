@@ -128,7 +128,7 @@
     margin-left: 4px;
   }
 
-  .favorite{
+  .favorite, .search-results{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
@@ -150,7 +150,7 @@
     margin: 64px auto;
   }
 
-  #jumbotron-favorite .form{
+  #jumbotron-home .form{
     min-width: 80%;
     margin: 12px 0;
   }
@@ -276,7 +276,7 @@
     margin-left: 4px;
   }
 
-  .favorite{
+  .favorite, .search-results{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
@@ -294,7 +294,7 @@
     min-height: 65vh;
   }
 
-  #jumbotron-favorite .form{
+  #jumbotron-home .form{
     min-width: 70%;
     margin: 12px 0;
   }
@@ -433,7 +433,7 @@
     margin-left: 4px;
   }
 
-  .favorite{
+  .favorite, .search-results{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 8px;
@@ -456,7 +456,7 @@
     min-height: 70vh;
   }
 
-  #jumbotron-favorite .form{
+  #jumbotron-home .form{
     min-width: 50%;
     margin: 12px 0;
   }
@@ -593,7 +593,7 @@
     margin-left: 32px;
   }
 
-  .favorite{
+  .favorite, .search-results{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
@@ -615,7 +615,7 @@
     min-height: 85vh;
   }
 
-  #jumbotron-favorite .form{
+  #jumbotron-home .form{
     min-width: 50%;
     margin: 12px 0;
   }
@@ -767,7 +767,7 @@
     margin-left: 32px;
   }
 
-  .favorite{
+  .favorite, .search-results{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
@@ -789,7 +789,7 @@
     min-height: 85vh;
   }
 
-  #jumbotron-favorite .form{
+  #jumbotron-home .form{
     min-width: 50%;
     margin: 12px 0;
   }

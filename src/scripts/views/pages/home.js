@@ -1,5 +1,5 @@
 import TheRestaurantDbSource from '../../data/therestaurantdb-source'
-import { createRestaurantItem } from '../templates/template-creator'
+import { createRestaurantItem, createHandlingPage } from '../templates/template-creator'
 
 const Home = {
   async render () {
@@ -8,7 +8,10 @@ const Home = {
       <div class="overlay">
         <h1 class="title">Good Food Brings <br> Good Mood</h1>
         <p class="sub-title">Find the delicious food to make your day!</p>
-        <a class="btn btn-secondary" href="#" aria-label="Aria Explore">EXPLORE</a>
+        <div class="form">
+          <input type="text" placeholder="Restaurant name.." name="query" id="query" value="" class="form-input">
+          <button id="search-restaurant" type="button" class="btn-outline-primary">SEARCH</button>
+      </div>
       </div>
     </div>
 
@@ -42,6 +45,10 @@ const Home = {
         </form>
       </div>
     </div>
+
+    <div class="container hide" id="search-results-container">
+      <div class="search-results" id="search-results-content"></div>
+    </div>
     `
   },
 
@@ -51,6 +58,10 @@ const Home = {
     const slider = document.getElementById('popular')
     const skipLink = document.getElementById('skip-link')
     const content = document.querySelector('#content-home')
+    const searchResultContainer = document.getElementById('search-results-container')
+    const searchResultContent = document.getElementById('search-results-content')
+    const searchButton = document.getElementById('search-restaurant')
+    const query = document.getElementById('query')
 
     skipLink.addEventListener('click', (e) => {
       e.preventDefault()
@@ -61,6 +72,30 @@ const Home = {
     const restaurants = await TheRestaurantDbSource.listRestaurant()
     restaurants.forEach((restaurant) => {
       slider.innerHTML += createRestaurantItem(restaurant)
+    })
+
+    searchButton.addEventListener('click', async (e) => {
+      e.preventDefault()
+      const searchKey = query.value
+      const searchResults = await TheRestaurantDbSource.searchRestaurant(searchKey)
+      console.log(searchResults)
+
+      searchResultContainer.classList.remove('hide')
+      content.classList.toggle('hide')
+      searchResults?.length > 0 ? searchResults.forEach((resto) => { searchResultContent.innerHTML += createRestaurantItem(resto) }) : searchResultContainer.innerHTML = createHandlingPage('SORRY...', 'The restaurant you were looking is not found')
+    })
+
+    query.addEventListener('keypress', async (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault()
+        const searchKey = query.value
+        const searchResults = await TheRestaurantDbSource.searchRestaurant(searchKey)
+        console.log(searchResults)
+
+        searchResultContainer.classList.remove('hide')
+        content.classList.toggle('hide')
+        searchResults?.length > 0 ? searchResults.forEach((resto) => { searchResultContent.innerHTML += createRestaurantItem(resto) }) : searchResultContainer.innerHTML = createHandlingPage('SORRY...', 'The restaurant you were looking is not found')
+      }
     })
 
     function scrollLeft () {

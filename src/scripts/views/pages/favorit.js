@@ -7,10 +7,6 @@ const Favorite = {
       <div class="jumbotron" id="jumbotron-favorite">
         <div class="overlay">
           <h1 class="title">Favorite Restaurants</h1>
-          <div class="form">
-            <input type="text" placeholder="Restaurant name.." name="query" id="query" class="form-input">
-            <button type="button" class="btn-outline-primary">SEND</button>
-          </div>
         </div>
       </div>
 
