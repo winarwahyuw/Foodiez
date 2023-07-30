@@ -382,13 +382,6 @@ window.addEventListener('load', function () {
 
 module.exports = __webpack_require__.p + "1115c0304f8cfc6e83ad.jpg";
 
-/***/ }),
-
-/***/ 106:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__.p + "131a63d3be85f3ec27d4.jpg";
-
 /***/ })
 
 }]);

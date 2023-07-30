@@ -123,7 +123,7 @@ var Detail = {
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
-            return _context.abrupt("return", "\n    <div class=\"jumbotron\" id=\"jumbotron-detail\">\n      <div class=\"overlay\" id=\"overlay-detail\">\n        <h1 class=\"title\" id=\"restaurant-name\"></h1>\n        <p class=\"sub-title\">Find the delicious food to make your day!</p>\n      </div>\n    </div>\n\n    <div class=\"container detail\" id=\"content-detail\">\n      <div class=\"card detail-resto\" id=\"detail-resto\"></div>\n      <div class=\"card my-2\" id=\"reviews\">\n        <div class=\"my-2 reviews-form\" id=\"reviews-form\">\n          <h3 class=\"title my-3\">Have been here? Add review</h3>\n          <form action=\"\" id=\"add-review\">\n            <p id=\"alert\"></p>\n            <input type=\"text\" id=\"name\" name=\"name\" placeholder=\"your name..\" required>\n            <textarea name=\"review\" id=\"review\" rows=\"5\" placeholder=\"say something about this place..\" required></textarea>\n            <button type=\"submit\" id=\"btn-add-review\" aria-label=\"Button Review\" class=\"btn btn-secondary\">Add Review</button>\n          </form>\n        </div>\n        <div class=\"my-2 reviews-content\" id=\"reviews-content\">\n          <h3 class=\"title my-3\">What they say?</h3>\n        </div>\n      </div>\n      <div id=\"likeButtonContainer\"></div>\n    </div>\n    ");
+            return _context.abrupt("return", "\n    <div class=\"jumbotron\" id=\"jumbotron-detail\">\n      <picture>\n        <source media=\"(max-width: 600px)\" id=\"source-hero-img\" srcset=\"\">\n        <img src=\"\" loading=\"lazy\" id=\"hero-img\" alt=\"Hero Image\" class=\"img hero-img\"/>\n      </picture>\n\n      <div class=\"overlay\" id=\"overlay-detail\">\n        <div class=\"overlay-content\">\n          <h1 class=\"title\" id=\"restaurant-name\"></h1>\n          <p class=\"sub-title\">Find the delicious food to make your day!</p>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"container detail\" id=\"content-detail\">\n      <div class=\"card detail-resto\" id=\"detail-resto\"></div>\n      <div class=\"card my-2\" id=\"reviews\">\n        <div class=\"my-2 reviews-form\" id=\"reviews-form\">\n          <h3 class=\"title my-3\">Have been here? Add review</h3>\n          <form action=\"\" id=\"add-review\">\n            <p id=\"alert\"></p>\n            <input type=\"text\" id=\"name\" name=\"name\" placeholder=\"your name..\" required>\n            <textarea name=\"review\" id=\"review\" rows=\"5\" placeholder=\"say something about this place..\" required></textarea>\n            <button type=\"submit\" id=\"btn-add-review\" aria-label=\"Button Review\" class=\"btn btn-secondary\">Add Review</button>\n          </form>\n        </div>\n        <div class=\"my-2 reviews-content\" id=\"reviews-content\">\n          <h3 class=\"title my-3\">What they say?</h3>\n        </div>\n      </div>\n      <div id=\"likeButtonContainer\"></div>\n    </div>\n    ");
           case 1:
           case "end":
             return _context.stop();
@@ -133,11 +133,12 @@ var Detail = {
   },
   afterRender: function afterRender() {
     return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
-      var jumbotron, jumbotronOverlay, restaurantName, container, reviewsContainer, reviewsContent, formAddReview, alertAddReview, skipLink, content, url, restaurant;
+      var heroImg, sourceHeroImg, jumbotronOverlay, restaurantName, container, reviewsContainer, reviewsContent, formAddReview, alertAddReview, skipLink, content, url, restaurant;
       return _regeneratorRuntime().wrap(function _callee3$(_context3) {
         while (1) switch (_context3.prev = _context3.next) {
           case 0:
-            jumbotron = document.getElementById('jumbotron-detail');
+            heroImg = document.getElementById('hero-img');
+            sourceHeroImg = document.getElementById('source-hero-img');
             jumbotronOverlay = document.querySelector('#overlay-detail');
             restaurantName = document.getElementById('restaurant-name');
             container = document.querySelector('#detail-resto');
@@ -148,10 +149,10 @@ var Detail = {
             skipLink = document.getElementById('skip-link');
             content = document.querySelector('#content-detail');
             url = _routes_urlParser__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.parseActiveUrlWithoutCombiner();
-            _context3.prev = 11;
-            _context3.next = 14;
+            _context3.prev = 12;
+            _context3.next = 15;
             return _data_therestaurantdb_source__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z.detailRestaurant(url.id);
-          case 14:
+          case 15:
             restaurant = _context3.sent;
             skipLink.addEventListener('click', function (e) {
               e.preventDefault();
@@ -160,7 +161,8 @@ var Detail = {
               });
               skipLink.blur();
             });
-            jumbotron.style.backgroundImage = "url(".concat(_globals_api_endpoint__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z.IMAGE_LARGE(restaurant.pictureId), ")");
+            heroImg.setAttribute('src', "".concat(_globals_api_endpoint__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z.IMAGE_LARGE(restaurant.pictureId)));
+            sourceHeroImg.setAttribute('srcset', "".concat(_globals_api_endpoint__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z.IMAGE_LARGE(restaurant.pictureId)));
             restaurantName.append(restaurant.name);
             container.innerHTML = (0,_templates_template_creator__WEBPACK_IMPORTED_MODULE_4__/* .createRestaurantDetail */ .p5)(restaurant);
             restaurant.customerReviews.map(function (review) {
@@ -219,20 +221,20 @@ var Detail = {
                 customerReviews: restaurant.customerReviews
               }
             });
-            _context3.next = 30;
+            _context3.next = 32;
             break;
-          case 24:
-            _context3.prev = 24;
-            _context3.t0 = _context3["catch"](11);
+          case 26:
+            _context3.prev = 26;
+            _context3.t0 = _context3["catch"](12);
             console.log(_context3.t0);
             reviewsContainer.style.display = 'none';
             content.style.display = 'none';
             jumbotronOverlay.innerHTML = (0,_templates_template_creator__WEBPACK_IMPORTED_MODULE_4__/* .createHandlingPage */ .Jd)('Oopss..', 'Could not reach the page because you are offline!');
-          case 30:
+          case 32:
           case "end":
             return _context3.stop();
         }
-      }, _callee3, null, [[11, 24]]);
+      }, _callee3, null, [[12, 26]]);
     }))();
   }
 };
