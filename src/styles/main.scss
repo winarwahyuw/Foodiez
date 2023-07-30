@@ -142,6 +142,8 @@ body {
   background: rgb(255, 255, 255);
   background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(252, 252, 252, 1) 22%, rgba(250, 250, 250, 1) 33%, rgba(240, 240, 240, 1) 59%, rgba(240, 240, 240, 1) 70%, rgba(240, 240, 240, 1) 75%, rgba(240, 240, 240, 1) 77%, rgba(240, 240, 240, 1) 80%, rgba(241, 241, 241, 1) 89%, rgba(231, 231, 231, 1) 100%);
   position: relative;
+  font-family: 'Poppins', sans-serif;
+
 }
 
 .open{
@@ -157,9 +159,14 @@ header {
   z-index: 1;
 }
 
-#jumbotron-home{
-  background-image: url('../../dist/images/heros/hero-image_2.jpg');
+.img{
+  width: auto;
+  height: 200px;
 }
+
+// #jumbotron-home{
+//   background-image: url('../../dist/images/heros/hero-image_2.jpg');
+// }
 
 #jumbotron-favorite{
   background-image: url('../../dist/images/heros/hero-image_1.jpg');
@@ -172,25 +179,40 @@ header {
   background-size: cover;
 }
 
+
 .jumbotron {
-  min-height: 200px;
   background-size: auto;
   background-color: #000;
+  overflow-y: hidden;
+
+  .hero-img{
+    width: 100%;
+    object-fit: cover;
+  }
 
   .overlay {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: start;
-    min-width: inherit;
-    min-height: inherit;
+    width: 100%;
+    min-height: 200px;
     background-color: #0000006b;
-    padding: 32px 16px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
 
     .title {
       color: var(--light);
       font-family: 'Noto Serif Display', serif;
       font-weight: 600;
+    }
+
+    .overlay-content{
+      height: fit-content;
+      width: inherit;
+      padding: 32px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      align-items: start;
     }
   }
 
@@ -281,7 +303,7 @@ main {
     // border: 1px solid var(--primary);
     border: none;
     border-radius: 8px;
-    background-color: var(--light-secondary);
+    background-color: var(--light);
     height: 44px;
     padding: 0 8px;
     width: -webkit-fill-available;

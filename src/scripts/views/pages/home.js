@@ -5,15 +5,23 @@ const Home = {
   async render () {
     return `
     <div class="jumbotron" id="jumbotron-home">
+      <picture>
+        <source media="(max-width: 600px)" srcset="./images/heros/hero-image_2.jpg">
+        <img src="./images/heros/hero-image_2.jpg" id="hero-img" alt="heroo" class="img hero-img"/>
+      </picture>
+
       <div class="overlay">
-        <h1 class="title">Good Food Brings <br> Good Mood</h1>
-        <p class="sub-title">Find the delicious food to make your day!</p>
-        <div class="form">
-          <input type="text" placeholder="Restaurant name.." name="query" id="query" value="" class="form-input">
-          <button id="search-restaurant" aria-label="Search Button" type="button" class="btn-outline-primary">SEARCH</button>
+        <div class="overlay-content">
+          <h1 class="title">Good Food Brings <br> Good Mood</h1>
+          <p class="sub-title">Find the delicious food to make your day!</p>
+          <div class="form">
+            <input type="text" placeholder="Restaurant name.." name="query" id="query" value="" class="form-input">
+            <button id="search-restaurant" aria-label="Search Button" type="button" class="btn-outline-primary">SEARCH</button>
+          </div>
         </div>
       </div>
     </div>
+
 
     <div class="container" id="content-home">
       <div class="sub-main" id="our-story">

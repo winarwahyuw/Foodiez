@@ -5,6 +5,7 @@ const WebpackPwaManifest = require('webpack-pwa-manifest')
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default
 const ImageminMozjpeg = require('imagemin-mozjpeg')
 const TerserPlugin = require('terser-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
   entry: {
@@ -21,7 +22,28 @@ module.exports = {
     minimize: true,
     minimizer: [new TerserPlugin({
       include: 'src/scripts/views/app.js'
-    })]
+    })],
+    splitChunks: {
+      chunks: 'all',
+      minSize: 20000,
+      maxSize: 70000,
+      minChunks: 1,
+      maxAsyncRequests: 30,
+      maxInitialRequests: 30,
+      automaticNameDelimiter: '~',
+      enforceSizeThreshold: 50000,
+      cacheGroups: {
+        defaultVendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
   },
   module: {
     rules: [
@@ -44,7 +66,11 @@ module.exports = {
       patterns: [
         {
           from: path.resolve(__dirname, 'src/public/images/'),
-          to: path.resolve(__dirname, 'dist/images')
+          to: path.resolve(__dirname, 'dist/images'),
+          globOptions: {
+            // CopyWebpackPlugin mengabaikan berkas yang berada di dalam folder images
+            ignore: ['**/images/**']
+          }
         },
         {
           from: path.resolve(__dirname, 'src/public/icons'),
@@ -79,6 +105,7 @@ module.exports = {
           progressive: true
         })
       ]
-    })
+    }),
+    new BundleAnalyzerPlugin()
   ]
 }

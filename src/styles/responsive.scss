@@ -7,13 +7,22 @@
   }
 
   .jumbotron {
-    min-height: 300px;
+    min-height: 400px;
     justify-content: end;
     align-items: start;
+
+    .hero-img{
+      height: 400px;
+    }
+
+    .overlay{
+      height: 400px;
+    }
 
     .overlay .title {
       text-align: left;
       margin-bottom: 20px;
+      margin-top: 32px;
     }
   }
 
@@ -163,7 +172,25 @@
   }
 
   .jumbotron {
-    min-height: 45vh;
+    min-height: 55vh;
+
+    .hero-img{
+      height: 55vh;
+    }
+
+    .title{
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+
+    .overlay{
+      height: 55vh;
+    }
+
+    .overlay-content{
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
 
   #our-story {
@@ -314,13 +341,22 @@
     border-radius: 0;
     min-height: 350px;
 
+    .hero-img{
+      height: 350px;
+    }
+
     .overlay {
-      justify-content: center;
-      align-items: center;
+      height: 350px;
 
       .title {
         text-align: center;
         margin-bottom: 16px;
+        margin-top: 50px;
+      }
+
+      .overlay-content{
+        justify-content: center;
+        align-items: center;
       }
     }
   }
@@ -478,13 +514,22 @@
     border-radius: 0;
     min-height: 350px;
 
+    .hero-img{
+      height: 350px;
+    }
+
     .overlay {
-      justify-content: center;
-      align-items: center;
+      min-height: 350px;
 
       .title {
         text-align: center;
         margin-bottom: 16px;
+        margin-top: 65px;
+      }
+
+      .overlay-content{
+        justify-content: center;
+        align-items: center;
       }
     }
   }
@@ -667,13 +712,15 @@
     min-height: 60vh;
     min-width: 1000px;
 
+    .hero-img{
+      height: 60vh;
+    }
+
     .overlay {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      height: 60vh;
 
       .title {
+        margin-top: 70px;
         margin-bottom: 24px;
         text-align: center;
       }
@@ -681,6 +728,13 @@
       .sub-title {
         font-weight: 600;
         font-size: 14pt;
+      }
+
+      .overlay-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
