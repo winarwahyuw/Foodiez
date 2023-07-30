@@ -32,6 +32,41 @@ Scenario('liking one restaurant', async ({ I }) => {
   assert.strictEqual(firstRestaurantTitle, favRestaurantTitle)
 })
 
+Scenario('unlike one restaurants', async ({ I }) => {
+  I.waitForElement('#content-favorite')
+  I.wait(10)
+  I.see('No favorite restaurant found', '.handling-page')
+
+  I.amOnPage('')
+  I.waitForElement('#restaurant-name')
+
+  const firstRestaurantButton = locate('#popular #restaurant-item a').first()
+  const firstRestaurantTitle = await I.grabTextFrom(
+    locate('#restaurant-name').first()
+  )
+
+  I.click(firstRestaurantButton)
+  I.waitForElement('#likeButton')
+  I.click('#likeButton')
+
+  I.amOnPage('#/favorite')
+  I.waitForElement('#content-favorite #restaurant-item')
+
+  const likedRestaurantTitle = await I.grabTextFrom('#restaurant-name')
+  assert.strictEqual(firstRestaurantTitle, likedRestaurantTitle)
+
+  I.waitForElement('#restaurant-name')
+
+  const firstRestaurantLiked = locate('#restaurant-item a').first()
+  I.click(firstRestaurantLiked)
+
+  I.waitForElement('#likeButton')
+  I.click('#likeButton')
+
+  I.amOnPage('#/favorite')
+  I.see('No favorite restaurant found', '.handling-page')
+})
+
 Scenario('searching restaurants', async ({ I }) => {
   I.waitForElement('#content-favorite')
   I.wait(10)

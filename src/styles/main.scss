@@ -164,11 +164,9 @@ header {
   height: 200px;
 }
 
-#jumbotron-error{
-  background-image: url('../../dist/images/heros/hero-image_1.jpg');
-  background-size: cover;
+#jumbotron-error a{
+  margin: 24px 0;
 }
-
 
 .jumbotron {
   background-size: auto;

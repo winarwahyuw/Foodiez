@@ -7,7 +7,7 @@
   }
 
   .jumbotron {
-    min-height: 400px;
+    height: 400px;
     justify-content: end;
     align-items: start;
 
@@ -150,10 +150,6 @@
 
   .reviews-content{
     margin: 16px;
-  }
-      
-  #jumbotron-error .overlay{
-    min-height: 60vh;
   }
 
   .handling-page{
@@ -318,10 +314,6 @@
 
   .reviews-content{
     margin: 16px;
-  }
-      
-  #jumbotron-error .overlay{
-    min-height: 65vh;
   }
 
   #jumbotron-home .form, 
@@ -491,11 +483,6 @@
     overflow-y: auto;
   }
 
-      
-  #jumbotron-error .overlay{
-    min-height: 70vh;
-  }
-
   #jumbotron-home .form, 
   #jumbotron-favorite .form{
     min-width: 50%;
@@ -659,10 +646,6 @@
     padding: 16px;
     height: 400px;
     overflow-y: auto;
-  }
-      
-  #jumbotron-error .overlay{
-    min-height: 85vh;
   }
 
   #jumbotron-home .form, 
@@ -843,10 +826,6 @@
     padding: 16px;
     height: 400px;
     overflow-y: auto;
-  }
-    
-  #jumbotron-error .overlay{
-    min-height: 85vh;
   }
 
   #jumbotron-favorite{
