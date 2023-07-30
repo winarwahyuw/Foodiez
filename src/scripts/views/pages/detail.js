@@ -17,7 +17,7 @@ const Detail = {
       </picture>
 
       <div class="overlay" id="overlay-detail">
-        <div class="overlay-content">
+        <div class="overlay-content" id="overlay-detail-content">
           <h1 class="title" id="restaurant-name"></h1>
           <p class="sub-title">Find the delicious food to make your day!</p>
         </div>
@@ -47,7 +47,7 @@ const Detail = {
   async afterRender () {
     const heroImg = document.getElementById('hero-img')
     const sourceHeroImg = document.getElementById('source-hero-img')
-    const jumbotronOverlay = document.querySelector('#overlay-detail')
+    const jumbotronOverlay = document.querySelector('#overlay-detail-content')
     const restaurantName = document.getElementById('restaurant-name')
     const container = document.querySelector('#detail-resto')
     const reviewsContainer = document.querySelector('#reviews')

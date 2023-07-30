@@ -9,6 +9,11 @@
   --light-secondary: #c4c4c4;
 }
 
+#main-content{
+  min-height: 100px;
+  background-color: var(--light-secondary);
+}
+
 a{
   text-decoration: none;
   color: unset;

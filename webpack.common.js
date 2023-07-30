@@ -7,11 +7,12 @@ const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default
 const ImageminMozjpeg = require('imagemin-mozjpeg')
 const TerserPlugin = require('terser-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, 'src/scripts/index.js'),
-    sw: path.resolve(__dirname, 'src/scripts/sw.js')
+    app: path.resolve(__dirname, 'src/scripts/index.js')
+    // sw: path.resolve(__dirname, 'src/scripts/sw.js')
   },
   output: {
     filename: '[name].bundle.js',
@@ -106,6 +107,17 @@ module.exports = {
           progressive: true
         })
       ]
+    }),
+    new ImageminWebpWebpackPlugin({
+      config: [
+        {
+          test: /\.(jpe?g|png)/,
+          options: {
+            quality: 50
+          }
+        }
+      ],
+      overrideExtension: true
     }),
     new BundleAnalyzerPlugin(),
     new WorkboxWebpackPlugin.GenerateSW({

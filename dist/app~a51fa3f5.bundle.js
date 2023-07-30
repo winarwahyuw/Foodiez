@@ -1,5 +1,5 @@
 "use strict";
-(self["webpackChunkrestaurant_apps"] = self["webpackChunkrestaurant_apps"] || []).push([[17],{
+(self["webpackChunkrestaurant_apps"] = self["webpackChunkrestaurant_apps"] || []).push([[495],{
 
 /***/ 499:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
@@ -319,12 +319,13 @@ var CONFIG = {
   CACHE_NAME: 'Foodiez-V1',
   DATABASE_NAME: 'foodiez-database',
   DATABASE_VERSION: 1,
-  OBJECT_STORE_NAME: 'restaurants',
+  OBJECT_STORE_NAME: 'restaurants'
   // WEB_SOCKET_SERVER: 'wss://movies-feed.dicoding.dev',
-  PUSH_MSG_VAPID_PUBLIC_KEY: 'BN7-r0Svv7CsTi18-OPYtJLVW0bfuZ1x1UtrygczKjennA_qs7OWmgOewcuYSYF3Gc_mPbqsDh2YoGCDPL0RxDQ',
-  PUSH_MSG_SUBSCRIBE_URL: 'https://dicoding-movie-push-notif.netlify.app/.netlify/functions/subscribe',
-  PUSH_MSG_UNSUBSCRIBE_URL: 'https://dicoding-movie-push-notif.netlify.app/.netlify/functions/unsubscribe'
+  // PUSH_MSG_VAPID_PUBLIC_KEY: 'BN7-r0Svv7CsTi18-OPYtJLVW0bfuZ1x1UtrygczKjennA_qs7OWmgOewcuYSYF3Gc_mPbqsDh2YoGCDPL0RxDQ',
+  // PUSH_MSG_SUBSCRIBE_URL: 'https://dicoding-movie-push-notif.netlify.app/.netlify/functions/subscribe',
+  // PUSH_MSG_UNSUBSCRIBE_URL: 'https://dicoding-movie-push-notif.netlify.app/.netlify/functions/unsubscribe'
 };
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CONFIG);
 
 /***/ }),
@@ -337,11 +338,11 @@ var CONFIG = {
 /* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(545);
 /* harmony import */ var _styles_responsive_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(181);
 /* harmony import */ var _views_app__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(899);
-/* harmony import */ var _utils_sw_register__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(317);
-/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(90);
-/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lazysizes__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var lazysizes_plugins_parent_fit_ls_parent_fit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(770);
-/* harmony import */ var lazysizes_plugins_parent_fit_ls_parent_fit__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lazysizes_plugins_parent_fit_ls_parent_fit__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _utils_sw_register__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(317);
+/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(90);
+/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lazysizes__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var lazysizes_plugins_parent_fit_ls_parent_fit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(770);
+/* harmony import */ var lazysizes_plugins_parent_fit_ls_parent_fit__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lazysizes_plugins_parent_fit_ls_parent_fit__WEBPACK_IMPORTED_MODULE_6__);
  /* for async await transpile */
 
 
@@ -366,7 +367,7 @@ window.addEventListener('hashchange', function () {
 });
 window.addEventListener('load', function () {
   app.renderPage();
-  (0,_utils_sw_register__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z)();
+  (0,_utils_sw_register__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z)();
   // WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER)
   // Initialize footer tools
   // FooterToolsInitiator.init({
@@ -375,14 +376,7 @@ window.addEventListener('load', function () {
   // })
 });
 
-/***/ }),
-
-/***/ 97:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__.p + "1115c0304f8cfc6e83ad.jpg";
-
 /***/ })
 
 }]);
-//# sourceMappingURL=app~5d3f7ed2.bundle.js.map
+//# sourceMappingURL=app~a51fa3f5.bundle.js.map

@@ -6,8 +6,9 @@ const Home = {
     return `
     <div class="jumbotron" id="jumbotron-home">
       <picture>
-        <source media="(max-width: 600px)" srcset="./images/hero-image_2-small.jpg">
-        <img src="./images/hero-image_2-large.jpg" id="hero-img" alt="Hero Image" class="img hero-img"/>
+        <source media="(max-width: 600px)" type="image/webp" srcset="./images/hero-image_2-small.webp">
+        <source media="(max-width: 600px)" type="image/jpg" srcset="./images/hero-image_2-small.jpg">
+        <img src="./images/hero-image_2-large.webp" id="hero-img" alt="Hero Image" class="img hero-img"/>
       </picture>
 
       <div class="overlay">
