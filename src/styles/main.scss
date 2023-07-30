@@ -268,6 +268,40 @@ main {
   }
 }
 
+#jumbotron-favorite{
+  .form {
+    border: none;
+    border-radius: 10px;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  input[type=text] {
+    // border: 1px solid var(--primary);
+    border: none;
+    border-radius: 8px;
+    background-color: var(--light-secondary);
+    height: 44px;
+    padding: 0 8px;
+    width: -webkit-fill-available;
+  }
+
+  .form button {
+    min-width: fit-content;
+    margin: 0 8px;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 24px;
+    font-weight: 500;
+    font-size: 12pt;
+    height: 44px;
+    background-color: var(--secondary);
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
 #subscribe {
   text-align: center;
 
@@ -280,6 +314,7 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
 
   input[type=email] {

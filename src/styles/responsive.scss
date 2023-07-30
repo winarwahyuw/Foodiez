@@ -149,6 +149,11 @@
   .handling-page{
     margin: 64px auto;
   }
+
+  #jumbotron-favorite .form{
+    min-width: 80%;
+    margin: 12px 0;
+  }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
@@ -287,6 +292,11 @@
       
   #jumbotron-error .overlay{
     min-height: 65vh;
+  }
+
+  #jumbotron-favorite .form{
+    min-width: 70%;
+    margin: 12px 0;
   }
 }
 
@@ -445,6 +455,11 @@
   #jumbotron-error .overlay{
     min-height: 70vh;
   }
+
+  #jumbotron-favorite .form{
+    min-width: 50%;
+    margin: 12px 0;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -598,6 +613,11 @@
       
   #jumbotron-error .overlay{
     min-height: 85vh;
+  }
+
+  #jumbotron-favorite .form{
+    min-width: 50%;
+    margin: 12px 0;
   }
 }
 
@@ -767,5 +787,10 @@
     
   #jumbotron-error .overlay{
     min-height: 85vh;
+  }
+
+  #jumbotron-favorite .form{
+    min-width: 50%;
+    margin: 12px 0;
   }
 }

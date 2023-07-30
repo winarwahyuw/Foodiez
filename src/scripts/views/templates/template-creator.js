@@ -1,6 +1,6 @@
 import API_ENDPOINT from '../../globals/api-endpoint'
 const createRestaurantItem = (restaurant) => `
-  <div class="card d-flex-col" id="restaurant-item">
+  <div class="card d-flex-col restaurant-item" id="restaurant-item">
     <img class="card-img" src="${API_ENDPOINT.IMAGE_SMALL(restaurant.pictureId)}" alt="Gambar Restoran">
     <div class="card-body">
         <p class="title">${restaurant.name}</p>
