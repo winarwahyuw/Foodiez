@@ -10,7 +10,7 @@ const Favorite = {
           <h1 class="title">Favorite Restaurants</h1>
           <div class="form">
             <input type="text" placeholder="Restaurant name.." name="query" id="query" value="" class="form-input">
-            <button id="search-restaurant" type="button" class="btn-outline-primary">SEARCH</button>
+            <button id="search-restaurant" type="button" aria-label="Search Button" class="btn-outline-primary">SEARCH</button>
           </div>
         </div>
       </div>

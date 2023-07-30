@@ -26,7 +26,7 @@ const Detail = {
             <p id="alert"></p>
             <input type="text" id="name" name="name" placeholder="your name.." required>
             <textarea name="review" id="review" rows="5" placeholder="say something about this place.." required></textarea>
-            <button type="submit" id="btn-add-review" class="btn btn-secondary">Add Review</button>
+            <button type="submit" id="btn-add-review" aria-label="Button Review" class="btn btn-secondary">Add Review</button>
           </form>
         </div>
         <div class="my-2 reviews-content" id="reviews-content">

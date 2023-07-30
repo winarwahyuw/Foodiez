@@ -10,7 +10,7 @@ const Home = {
         <p class="sub-title">Find the delicious food to make your day!</p>
         <div class="form">
           <input type="text" placeholder="Restaurant name.." name="query" id="query" value="" class="form-input">
-          <button id="search-restaurant" type="button" class="btn-outline-primary">SEARCH</button>
+          <button id="search-restaurant" aria-label="Search Button" type="button" class="btn-outline-primary">SEARCH</button>
         </div>
       </div>
     </div>
@@ -28,8 +28,8 @@ const Home = {
             <p>Andalan setiap kota</p>
           </div>
           <div class="right">
-            <button id="left-arrow" aria-label="left arrow" class="btn arrow"><i class="fa fa-angle-left"></i></button>
-            <button id="right-arrow" aria-label="right arrow" class="btn arrow"><i class="fa fa-angle-right"></i></button>
+            <button id="left-arrow" aria-label="left arrow" class="btn arrow" aria-label="Slide to Left"><i class="fa fa-angle-left"></i></button>
+            <button id="right-arrow" aria-label="right arrow" class="btn arrow" aria-label="Slide to Right"><i class="fa fa-angle-right"></i></button>
           </div>
         </div>
         <div class="slider-content" id="popular">
@@ -41,7 +41,7 @@ const Home = {
         <p>Subscribe for Delicious Updates!</p>
         <form action="#" method="post">
           <input type="email" placeholder="yours@mail.com" name="subscribe_email" id="subscribe-email" class="form-input">
-          <button type="submit" class="btn-outline-primary">SEND</button>
+          <button type="submit" class="btn-outline-primary" aria-label="Send Button">SEND</button>
         </form>
       </div>
     </div>

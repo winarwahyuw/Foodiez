@@ -43,8 +43,12 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, 'src/public/'),
-          to: path.resolve(__dirname, 'dist/')
+          from: path.resolve(__dirname, 'src/public/images/'),
+          to: path.resolve(__dirname, 'dist/images')
+        },
+        {
+          from: path.resolve(__dirname, 'src/public/icons'),
+          to: path.resolve(__dirname, 'dist/icons')
         }
       ]
     }),
@@ -59,7 +63,8 @@ module.exports = {
       start_url: './index.html',
       icons: [
         {
-          src: path.resolve('dist/icons/foodiez-icon.png'),
+          src: path.resolve('src/public/icons/foodiez-icon.png'),
+          // src: path.resolve('dist/icons/foodiez-icon.png'),
           type: 'image/png',
           sizes: [48, 72, 96, 144, 192, 512],
           purpose: 'maskable any',

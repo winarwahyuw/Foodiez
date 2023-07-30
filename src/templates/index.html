@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foodiez</title>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"></link> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
+    <link rel="stylesheet preload" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" as="style" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="manifest" href="./app.manifest">
@@ -26,9 +25,9 @@
           <button type="button" aria-label="Aria Bars" id="btn-dropdown" class="btn-dropdown"><i class="fa fa-thin fa-bars"></i></button>
           <div id="dropdown-menu" class="dropdown-menu" >
             <ul>
-              <li><a class="nav-link" href="#/home">Home</a></li>
-              <li><a href="#/favorite">My Favorite</a></li>
-              <li><a class="nav-link" href="https://www.linkedin.com/in/winarwahyuw/" rel="noreferrer" target="_blank">About Us</a></li>
+              <li><a class="nav-link" accesskey="home" href="#/home">Home</a></li>
+              <li><a href="#/favorite" accesskey="fav">My Favorite</a></li>
+              <li><a class="nav-link" accesskey="about-us" href="https://www.linkedin.com/in/winarwahyuw/" rel="noreferrer" target="_blank">About Us</a></li>
             </ul>
           </div>
         </div>
