@@ -6,11 +6,18 @@ const Favorite = {
   async render () {
     return `
       <div class="jumbotron" id="jumbotron-favorite">
+        <picture>
+          <source media="(max-width: 600px)" srcset="./images/heros/hero-image_1.jpg">
+          <img src="./images/heros/hero-image_1.jpg" loading="lazy" id="hero-img" alt="Hero Image" class="img hero-img"/>
+        </picture>
+
         <div class="overlay">
-          <h1 class="title">Favorite Restaurants</h1>
-          <div class="form">
-            <input type="text" placeholder="Restaurant name.." name="query" id="query" value="" class="form-input">
-            <button id="search-restaurant" type="button" aria-label="Search Button" class="btn-outline-primary">SEARCH</button>
+          <div class="overlay-content">
+            <h1 class="title">Favorite Restaurants</h1>
+            <div class="form">
+              <input type="text" placeholder="Restaurant name.." name="query" id="query" value="" class="form-input">
+              <button id="search-restaurant" type="button" aria-label="Search Button" class="btn-outline-primary">SEARCH</button>
+            </div>
           </div>
         </div>
       </div>

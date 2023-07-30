@@ -164,16 +164,6 @@ header {
   height: 200px;
 }
 
-// #jumbotron-home{
-//   background-image: url('../../dist/images/heros/hero-image_2.jpg');
-// }
-
-#jumbotron-favorite{
-  background-image: url('../../dist/images/heros/hero-image_1.jpg');
-  min-height: 210px;
-  overflow-y: hidden;
-}
-
 #jumbotron-error{
   background-image: url('../../dist/images/heros/hero-image_1.jpg');
   background-size: cover;
@@ -192,8 +182,7 @@ header {
 
   .overlay {
     width: 100%;
-    min-height: 200px;
-    background-color: #0000006b;
+    background-color: #0000008f;
     position: absolute;
     top: 0;
     display: flex;

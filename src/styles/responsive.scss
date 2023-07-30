@@ -17,6 +17,7 @@
 
     .overlay{
       height: 400px;
+      align-items: end;
     }
 
     .overlay .title {
@@ -185,6 +186,7 @@
 
     .overlay{
       height: 55vh;
+      align-items: end;
     }
 
     .overlay-content{
@@ -512,7 +514,7 @@
 
   .jumbotron {
     border-radius: 0;
-    min-height: 350px;
+    height: 350px;
 
     .hero-img{
       height: 350px;
@@ -709,15 +711,15 @@
   }
 
   .jumbotron {
-    min-height: 60vh;
+    height: 80vh;
     min-width: 1000px;
 
     .hero-img{
-      height: 60vh;
+      height: 80vh;
     }
 
     .overlay {
-      height: 60vh;
+      height: 80vh;
 
       .title {
         margin-top: 70px;
@@ -845,6 +847,20 @@
     
   #jumbotron-error .overlay{
     min-height: 85vh;
+  }
+
+  #jumbotron-favorite{
+    height: 220px;
+    overflow-y: hidden;
+  
+    .hero-img{
+      width: 100%;
+      object-fit: cover;
+    }
+  
+    .overlay{
+      height: 220px;
+    }
   }
 
   #jumbotron-home .form, 

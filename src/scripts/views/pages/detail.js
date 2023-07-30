@@ -11,9 +11,16 @@ const Detail = {
   async render () {
     return `
     <div class="jumbotron" id="jumbotron-detail">
+      <picture>
+        <source media="(max-width: 600px)" id="source-hero-img" srcset="">
+        <img src="" loading="lazy" id="hero-img" alt="Hero Image" class="img hero-img"/>
+      </picture>
+
       <div class="overlay" id="overlay-detail">
-        <h1 class="title" id="restaurant-name"></h1>
-        <p class="sub-title">Find the delicious food to make your day!</p>
+        <div class="overlay-content">
+          <h1 class="title" id="restaurant-name"></h1>
+          <p class="sub-title">Find the delicious food to make your day!</p>
+        </div>
       </div>
     </div>
 
@@ -38,7 +45,8 @@ const Detail = {
     `
   },
   async afterRender () {
-    const jumbotron = document.getElementById('jumbotron-detail')
+    const heroImg = document.getElementById('hero-img')
+    const sourceHeroImg = document.getElementById('source-hero-img')
     const jumbotronOverlay = document.querySelector('#overlay-detail')
     const restaurantName = document.getElementById('restaurant-name')
     const container = document.querySelector('#detail-resto')
@@ -58,7 +66,9 @@ const Detail = {
         skipLink.blur()
       })
 
-      jumbotron.style.backgroundImage = `url(${API_ENDPOINT.IMAGE_LARGE(restaurant.pictureId)})`
+      heroImg.setAttribute('src', `${API_ENDPOINT.IMAGE_LARGE(restaurant.pictureId)}`)
+      sourceHeroImg.setAttribute('srcset', `${API_ENDPOINT.IMAGE_LARGE(restaurant.pictureId)}`)
+
       restaurantName.append(restaurant.name)
       container.innerHTML = createRestaurantDetail(restaurant)
 
