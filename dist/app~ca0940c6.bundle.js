@@ -169,8 +169,7 @@ var Detail = {
             });
             formAddReview.addEventListener('submit', /*#__PURE__*/function () {
               var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(e) {
-                var _result$customerRevie;
-                var id, name, review, result;
+                var id, name, review, _result$customerRevie, result;
                 return _regeneratorRuntime().wrap(function _callee2$(_context2) {
                   while (1) switch (_context2.prev = _context2.next) {
                     case 0:
@@ -178,13 +177,14 @@ var Detail = {
                       id = restaurant.id;
                       name = document.getElementById('name').value;
                       review = document.getElementById('review').value;
-                      _context2.next = 6;
+                      _context2.prev = 4;
+                      _context2.next = 7;
                       return _data_therestaurantdb_source__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z.putRestaurantReview({
                         id: id,
                         name: name,
                         review: review
                       });
-                    case 6:
+                    case 7:
                       result = _context2.sent;
                       result.error ? alertAddReview.innerHTML = (0,_templates_template_creator__WEBPACK_IMPORTED_MODULE_4__/* .createAlert */ .el)('danger', result.message) : alertAddReview.innerHTML = (0,_templates_template_creator__WEBPACK_IMPORTED_MODULE_4__/* .createAlert */ .el)('success', "Add review ".concat(result.message));
                       setTimeout(function () {
@@ -194,11 +194,17 @@ var Detail = {
                         return reviewsContent.innerHTML += (0,_templates_template_creator__WEBPACK_IMPORTED_MODULE_4__/* .createReviews */ .tG)(review);
                       });
                       formAddReview.reset();
-                    case 11:
+                      _context2.next = 17;
+                      break;
+                    case 14:
+                      _context2.prev = 14;
+                      _context2.t0 = _context2["catch"](4);
+                      content.innerHTML = (0,_templates_template_creator__WEBPACK_IMPORTED_MODULE_4__/* .createHandlingPage */ .Jd)('Oopss..', 'Could not add the review because you are offline!');
+                    case 17:
                     case "end":
                       return _context2.stop();
                   }
-                }, _callee2);
+                }, _callee2, null, [[4, 14]]);
               }));
               return function (_x) {
                 return _ref.apply(this, arguments);

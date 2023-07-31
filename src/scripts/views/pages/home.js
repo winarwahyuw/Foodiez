@@ -99,21 +99,26 @@ const Home = {
     })
 
     const onSearch = async () => {
-      const searchKey = query.value
-      const searchResults = await TheRestaurantDbSource.searchRestaurant(searchKey)
+      try {
+        const searchKey = query.value
+        const searchResults = await TheRestaurantDbSource.searchRestaurant(searchKey)
 
-      searchResultContainer.classList.remove('hide')
-      content.classList.add('hide')
+        searchResultContainer.classList.remove('hide')
+        content.classList.add('hide')
 
-      if (searchResults?.length > 0) {
-        searchResultContent.classList.remove('hide')
-        searchNotFound.classList.toggle('hide')
-        searchResults.forEach((resto) => { searchResultContent.innerHTML += createRestaurantItem(resto) })
-      } else {
-        searchResultContent.classList.toggle('hide')
-        searchNotFound.classList.remove('hide')
-        searchNotFound.innerHTML = createHandlingPage('SORRY...', 'The restaurant you were looking is not found')
-        searchResultContent.innerHTML = ''
+        if (searchResults?.length > 0) {
+          searchResultContent.classList.remove('hide')
+          searchNotFound.classList.toggle('hide')
+          searchResults.forEach((resto) => { searchResultContent.innerHTML += createRestaurantItem(resto) })
+        } else {
+          searchResultContent.classList.toggle('hide')
+          searchNotFound.classList.remove('hide')
+          searchNotFound.innerHTML = createHandlingPage('SORRY...', 'The restaurant you were looking is not found')
+          searchResultContent.innerHTML = ''
+        }
+      } catch (error) {
+        console.log(error)
+        searchNotFound.innerHTML = createHandlingPage('SORRY...', 'Could not reach the page because you are offline!')
       }
     }
 

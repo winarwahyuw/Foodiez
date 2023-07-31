@@ -21,7 +21,7 @@ const ErrorPage = {
               <p class="title my-2">The page you're looking is not found!</p>
             </div>
             <div class="handling-page-footer">
-              <a class="btn btn-secondary" href="/home">Back to Home</a>
+              <a class="btn btn-secondary" href="/">Back to Home</a>
             </div>
           </div>
         </div>

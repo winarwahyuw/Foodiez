@@ -82,18 +82,22 @@ const Detail = {
         const name = document.getElementById('name').value
         const review = document.getElementById('review').value
 
-        const result = await TheRestaurantDbSource.putRestaurantReview({ id, name, review })
-        result.error ? alertAddReview.innerHTML = createAlert('danger', result.message) : alertAddReview.innerHTML = createAlert('success', `Add review ${result.message}`)
+        try {
+          const result = await TheRestaurantDbSource.putRestaurantReview({ id, name, review })
+          result.error ? alertAddReview.innerHTML = createAlert('danger', result.message) : alertAddReview.innerHTML = createAlert('success', `Add review ${result.message}`)
 
-        setTimeout(() => {
-          alertAddReview.style.display = 'none'
-        }, 2000)
+          setTimeout(() => {
+            alertAddReview.style.display = 'none'
+          }, 2000)
 
-        result?.customerReviews?.map((review) => (
-          reviewsContent.innerHTML += createReviews(review)
-        ))
+          result?.customerReviews?.map((review) => (
+            reviewsContent.innerHTML += createReviews(review)
+          ))
 
-        formAddReview.reset()
+          formAddReview.reset()
+        } catch (error) {
+          content.innerHTML = createHandlingPage('Oopss..', 'Could not add the review because you are offline!')
+        }
       })
 
       LikeButtonPresenter.init({

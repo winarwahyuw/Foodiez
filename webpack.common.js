@@ -123,7 +123,29 @@ module.exports = {
     new WorkboxWebpackPlugin.GenerateSW({
       swDest: './sw.bundle.js',
       clientsClaim: true,
-      skipWaiting: true
+      skipWaiting: true,
+      runtimeCaching: [
+        {
+          urlPattern: /^https:\/\/restaurant-api.dicoding.dev\//,
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: `Foodiez-API-${new Date().getDate()}-${new Date().getMonth()}-${new Date().getFullYear()}`,
+            cacheableResponse: {
+              statuses: [0, 200]
+            }
+          }
+        },
+        {
+          urlPattern: /^/,
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'Foodiez-Home',
+            cacheableResponse: {
+              statuses: [0, 200]
+            }
+          }
+        }
+      ]
     })
   ]
 }

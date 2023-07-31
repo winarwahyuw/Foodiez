@@ -150,10 +150,11 @@ var Favorite = {
                 return _regeneratorRuntime().wrap(function _callee4$(_context4) {
                   while (1) switch (_context4.prev = _context4.next) {
                     case 0:
+                      _context4.prev = 0;
                       searchKey = query.value;
-                      _context4.next = 3;
+                      _context4.next = 4;
                       return _data_therestaurantdb_source__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z.searchRestaurant(searchKey);
-                    case 3:
+                    case 4:
                       searchResults = _context4.sent;
                       searchFavRestaurant = searchResults.filter(function (searchResult) {
                         return restaurants.some(function (restaurant) {
@@ -172,11 +173,17 @@ var Favorite = {
                         content.classList.add('hide');
                         searchNotFound.innerHTML = (0,_templates_template_creator__WEBPACK_IMPORTED_MODULE_1__/* .createHandlingPage */ .Jd)('SORRY...', 'The restaurant you were looking is not found');
                       }
-                    case 6:
+                      _context4.next = 12;
+                      break;
+                    case 9:
+                      _context4.prev = 9;
+                      _context4.t0 = _context4["catch"](0);
+                      content.innerHTML = (0,_templates_template_creator__WEBPACK_IMPORTED_MODULE_1__/* .createHandlingPage */ .Jd)('SORRY...', 'Could not reach the page because you are offline!');
+                    case 12:
                     case "end":
                       return _context4.stop();
                   }
-                }, _callee4);
+                }, _callee4, null, [[0, 9]]);
               }));
               return function onSearch() {
                 return _ref3.apply(this, arguments);
@@ -304,10 +311,11 @@ var Home = {
                 return _regeneratorRuntime().wrap(function _callee4$(_context4) {
                   while (1) switch (_context4.prev = _context4.next) {
                     case 0:
+                      _context4.prev = 0;
                       searchKey = query.value;
-                      _context4.next = 3;
+                      _context4.next = 4;
                       return _data_therestaurantdb_source__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.searchRestaurant(searchKey);
-                    case 3:
+                    case 4:
                       searchResults = _context4.sent;
                       searchResultContainer.classList.remove('hide');
                       content.classList.add('hide');
@@ -323,11 +331,18 @@ var Home = {
                         searchNotFound.innerHTML = (0,_templates_template_creator__WEBPACK_IMPORTED_MODULE_1__/* .createHandlingPage */ .Jd)('SORRY...', 'The restaurant you were looking is not found');
                         searchResultContent.innerHTML = '';
                       }
-                    case 7:
+                      _context4.next = 14;
+                      break;
+                    case 10:
+                      _context4.prev = 10;
+                      _context4.t0 = _context4["catch"](0);
+                      console.log(_context4.t0);
+                      searchNotFound.innerHTML = (0,_templates_template_creator__WEBPACK_IMPORTED_MODULE_1__/* .createHandlingPage */ .Jd)('SORRY...', 'Could not reach the page because you are offline!');
+                    case 14:
                     case "end":
                       return _context4.stop();
                   }
-                }, _callee4);
+                }, _callee4, null, [[0, 10]]);
               }));
               return function onSearch() {
                 return _ref3.apply(this, arguments);
