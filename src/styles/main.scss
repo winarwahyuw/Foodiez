@@ -187,14 +187,41 @@ header {
 }
 
 .jumbotron-error{
-  height: 150px;
+  background-size: auto;
+  background-color: #000;
+  overflow-y: hidden;
+  height: 200px;
 
   .hero-img{
-    height: 150px;
+    width: 100%;
+    object-fit: cover;
+    height: 200px;
   }
 
-  .overlay{
-    height: 150px;
+  .overlay {
+    width: 100%;
+    background-color: #0000008f;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    height: 200px;
+
+    .title {
+      color: var(--light);
+      font-family: 'Noto Serif Display', serif;
+      font-weight: 600;
+    }
+
+    .overlay-content{
+      height: fit-content;
+      width: inherit;
+      padding: 32px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      align-items: start;
+    }
   }
 }
 
