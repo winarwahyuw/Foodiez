@@ -361,7 +361,6 @@ window.addEventListener('hashchange', function () {
   window.scrollTo(0, 0);
 });
 window.addEventListener('load', function () {
-  console.log('lalala render');
   app.renderPage();
   (0,_utils_sw_register__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z)();
   // WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER)

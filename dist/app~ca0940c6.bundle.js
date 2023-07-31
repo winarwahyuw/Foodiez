@@ -133,7 +133,7 @@ var Detail = {
   },
   afterRender: function afterRender() {
     return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
-      var heroImg, sourceHeroImg, restaurantName, container, reviewsContainer, reviewsContent, formAddReview, alertAddReview, skipLink, content, jumbotron, url, imageLoadError, restaurant;
+      var heroImg, sourceHeroImg, restaurantName, container, reviewsContainer, reviewsContent, formAddReview, alertAddReview, skipLink, content, url, restaurant;
       return _regeneratorRuntime().wrap(function _callee3$(_context3) {
         while (1) switch (_context3.prev = _context3.next) {
           case 0:
@@ -147,18 +147,11 @@ var Detail = {
             alertAddReview = document.getElementById('alert');
             skipLink = document.getElementById('skip-link');
             content = document.querySelector('#content-detail');
-            jumbotron = document.getElementById('jumbotron-detail');
             url = _routes_urlParser__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.parseActiveUrlWithoutCombiner();
-            imageLoadError = function imageLoadError() {
-              console.log('failed render detail image');
-              jumbotron.classList.remove('jumbotron');
-              jumbotron.classList.add('jumbotron-error');
-            };
-            heroImg.setAttribute('onerror', imageLoadError());
-            _context3.prev = 14;
-            _context3.next = 17;
+            _context3.prev = 11;
+            _context3.next = 14;
             return _data_therestaurantdb_source__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z.detailRestaurant(url.id);
-          case 17:
+          case 14:
             restaurant = _context3.sent;
             skipLink.addEventListener('click', function (e) {
               e.preventDefault();
@@ -227,18 +220,18 @@ var Detail = {
                 customerReviews: restaurant.customerReviews
               }
             });
-            _context3.next = 32;
+            _context3.next = 29;
             break;
-          case 28:
-            _context3.prev = 28;
-            _context3.t0 = _context3["catch"](14);
+          case 25:
+            _context3.prev = 25;
+            _context3.t0 = _context3["catch"](11);
             reviewsContainer.style.display = 'none';
             content.innerHTML = (0,_templates_template_creator__WEBPACK_IMPORTED_MODULE_4__/* .createHandlingPage */ .Jd)('Oopss..', 'Could not reach the page because you are offline!');
-          case 32:
+          case 29:
           case "end":
             return _context3.stop();
         }
-      }, _callee3, null, [[14, 28]]);
+      }, _callee3, null, [[11, 25]]);
     }))();
   }
 };

@@ -55,16 +55,7 @@ const Detail = {
     const alertAddReview = document.getElementById('alert')
     const skipLink = document.getElementById('skip-link')
     const content = document.querySelector('#content-detail')
-    const jumbotron = document.getElementById('jumbotron-detail')
     const url = UrlParser.parseActiveUrlWithoutCombiner()
-
-    const imageLoadError = () => {
-      console.log('failed render detail image')
-      jumbotron.classList.remove('jumbotron')
-      jumbotron.classList.add('jumbotron-error')
-    }
-
-    heroImg.setAttribute('onerror', imageLoadError())
 
     try {
       const restaurant = await TheRestaurantDbSource.detailRestaurant(url.id)
