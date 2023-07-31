@@ -18,7 +18,6 @@ window.addEventListener('hashchange', () => {
 })
 
 window.addEventListener('load', () => {
-  console.log('lalala render')
   app.renderPage()
 
   swRegister()

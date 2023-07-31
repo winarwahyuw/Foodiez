@@ -9,8 +9,7 @@ const Home = {
         <source media="(max-width: 600px)" type="image/webp" srcset="./images/heros/hero-image_2-small.webp">
         <source media="(max-width: 600px)" type="image/jpg" srcset="./images/heros/hero-image_2-small.jpg">
         <source media="(min-width: 601px)" type="image/webp" srcset="./images/heros/hero-image_2-large.webp">
-        <source media="(min-width: 601px)" type="image/jpg" srcset="./images/heros/hero-image_2-large.jpg">
-        <img src="./images/heros/hero-image_2.jpg" id="hero-img" alt="Hero Image" class="img hero-img"/>
+        <img src="./images/heros/hero-image_2-large.jpg" id="hero-img" alt="Hero Image" class="img hero-img"/>
       </picture>
 
       <div class="overlay">

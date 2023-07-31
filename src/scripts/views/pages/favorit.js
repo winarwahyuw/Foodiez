@@ -69,14 +69,14 @@ const Favorite = {
       const searchResults = await TheRestaurantDbSource.searchRestaurant(searchKey)
 
       const searchFavRestaurant = searchResults.filter(searchResult => restaurants.some(restaurant => searchResult.id === restaurant.id))
-      favContainer.innerHTML = ''
       if (searchFavRestaurant?.length > 0) {
+        favContainer.innerHTML = ''
         content.classList.remove('hide')
-        searchResultContainer.classList.toggle('hide')
+        searchResultContainer.classList.add('hide')
         searchFavRestaurant.forEach((resto) => { favContainer.innerHTML += createRestaurantItem(resto) })
       } else {
         searchResultContainer.classList.remove('hide')
-        content.classList.toggle('hide')
+        content.classList.add('hide')
         searchNotFound.innerHTML = createHandlingPage('SORRY...', 'The restaurant you were looking is not found')
       }
     }

@@ -47,7 +47,6 @@ const Detail = {
   async afterRender () {
     const heroImg = document.getElementById('hero-img')
     const sourceHeroImg = document.getElementById('source-hero-img')
-    const jumbotronOverlay = document.querySelector('#overlay-detail-content')
     const restaurantName = document.getElementById('restaurant-name')
     const container = document.querySelector('#detail-resto')
     const reviewsContainer = document.querySelector('#reviews')
@@ -56,7 +55,16 @@ const Detail = {
     const alertAddReview = document.getElementById('alert')
     const skipLink = document.getElementById('skip-link')
     const content = document.querySelector('#content-detail')
+    const jumbotron = document.getElementById('jumbotron-detail')
     const url = UrlParser.parseActiveUrlWithoutCombiner()
+
+    const imageLoadError = () => {
+      console.log('failed render detail image')
+      jumbotron.classList.remove('jumbotron')
+      jumbotron.classList.add('jumbotron-error')
+    }
+
+    heroImg.setAttribute('onerror', imageLoadError())
 
     try {
       const restaurant = await TheRestaurantDbSource.detailRestaurant(url.id)
@@ -114,10 +122,8 @@ const Detail = {
         }
       })
     } catch (error) {
-      console.log(error)
       reviewsContainer.style.display = 'none'
-      content.style.display = 'none'
-      jumbotronOverlay.innerHTML = createHandlingPage('Oopss..', 'Could not reach the page because you are offline!')
+      content.innerHTML = createHandlingPage('Oopss..', 'Could not reach the page because you are offline!')
     }
   }
 }

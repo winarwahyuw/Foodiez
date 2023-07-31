@@ -9,6 +9,14 @@
   --light-secondary: #c4c4c4;
 }
 
+#jumbotron-error{
+  height: 200px !important;
+}
+
+#jumbotron-error .overlay{
+  height: 200px !important;
+}
+
 .skeleton{
   width: inherit;
   height: inherit;
@@ -176,6 +184,18 @@ header {
 
 #jumbotron-error a{
   margin: 24px 0;
+}
+
+.jumbotron-error{
+  height: 150px;
+
+  .hero-img{
+    height: 150px;
+  }
+
+  .overlay{
+    height: 150px;
+  }
 }
 
 .jumbotron {

@@ -3,8 +3,9 @@ const ErrorPage = {
     return `
         <div class="jumbotron" id="jumbotron-error">
           <picture>
-            <source media="(max-width: 600px)" srcset="./images/hero-image_1-small.jpg">
-            <img src="./images/hero-image_1-large.jpg" id="hero-img" alt="Hero Image" class="img hero-img"/>
+            <source media="(max-width: 600px)" type="image/webp" srcset="./images/not-found-page.webp">
+            <source media="(max-width: 600px)"  type="image/png" srcset="./images/not-found-page.png">
+            <img src="./images/not-found-page.png" id="hero-img" alt="Hero Image" class="img hero-img"/>
           </picture>
           <div class="overlay">
             <div class="overlay-content">
@@ -28,7 +29,16 @@ const ErrorPage = {
   },
 
   async afterRender () {
+    const heroImg = document.getElementById('hero-img')
 
+    const imageLoadError = () => {
+      console.log('failed render image')
+      const jumbotron = document.getElementById('jumbotron-error')
+      jumbotron.classList.remove('jumbotron')
+      jumbotron.classList.add('jumbotron-error')
+    }
+
+    heroImg.setAttribute('onerror', imageLoadError())
   }
 }
 

@@ -133,13 +133,12 @@ var Detail = {
   },
   afterRender: function afterRender() {
     return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
-      var heroImg, sourceHeroImg, jumbotronOverlay, restaurantName, container, reviewsContainer, reviewsContent, formAddReview, alertAddReview, skipLink, content, url, restaurant;
+      var heroImg, sourceHeroImg, restaurantName, container, reviewsContainer, reviewsContent, formAddReview, alertAddReview, skipLink, content, jumbotron, url, imageLoadError, restaurant;
       return _regeneratorRuntime().wrap(function _callee3$(_context3) {
         while (1) switch (_context3.prev = _context3.next) {
           case 0:
             heroImg = document.getElementById('hero-img');
             sourceHeroImg = document.getElementById('source-hero-img');
-            jumbotronOverlay = document.querySelector('#overlay-detail-content');
             restaurantName = document.getElementById('restaurant-name');
             container = document.querySelector('#detail-resto');
             reviewsContainer = document.querySelector('#reviews');
@@ -148,11 +147,18 @@ var Detail = {
             alertAddReview = document.getElementById('alert');
             skipLink = document.getElementById('skip-link');
             content = document.querySelector('#content-detail');
+            jumbotron = document.getElementById('jumbotron-detail');
             url = _routes_urlParser__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.parseActiveUrlWithoutCombiner();
-            _context3.prev = 12;
-            _context3.next = 15;
+            imageLoadError = function imageLoadError() {
+              console.log('failed render detail image');
+              jumbotron.classList.remove('jumbotron');
+              jumbotron.classList.add('jumbotron-error');
+            };
+            heroImg.setAttribute('onerror', imageLoadError());
+            _context3.prev = 14;
+            _context3.next = 17;
             return _data_therestaurantdb_source__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z.detailRestaurant(url.id);
-          case 15:
+          case 17:
             restaurant = _context3.sent;
             skipLink.addEventListener('click', function (e) {
               e.preventDefault();
@@ -223,18 +229,16 @@ var Detail = {
             });
             _context3.next = 32;
             break;
-          case 26:
-            _context3.prev = 26;
-            _context3.t0 = _context3["catch"](12);
-            console.log(_context3.t0);
+          case 28:
+            _context3.prev = 28;
+            _context3.t0 = _context3["catch"](14);
             reviewsContainer.style.display = 'none';
-            content.style.display = 'none';
-            jumbotronOverlay.innerHTML = (0,_templates_template_creator__WEBPACK_IMPORTED_MODULE_4__/* .createHandlingPage */ .Jd)('Oopss..', 'Could not reach the page because you are offline!');
+            content.innerHTML = (0,_templates_template_creator__WEBPACK_IMPORTED_MODULE_4__/* .createHandlingPage */ .Jd)('Oopss..', 'Could not reach the page because you are offline!');
           case 32:
           case "end":
             return _context3.stop();
         }
-      }, _callee3, null, [[12, 26]]);
+      }, _callee3, null, [[14, 28]]);
     }))();
   }
 };
