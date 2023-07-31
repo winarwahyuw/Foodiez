@@ -7,8 +7,9 @@ const Favorite = {
     return `
       <div class="jumbotron" id="jumbotron-favorite">
         <picture>
-          <source media="(max-width: 600px)" srcset="./images/hero-image_1-small.jpg">
-          <img src="./images/hero-image_1-large.jpg" loading="lazy" id="hero-img" alt="Hero Image" class="img hero-img"/>
+        <source media="(max-width: 600px)" type="image/webp" srcset="./images/heros/hero-image_1-small.webp">
+          <source media="(max-width: 600px)" type="image/jpg" srcset="./images/heros/hero-image_1-small.jpg">
+          <img src="./images/heros/hero-image_1.jpg" loading="lazy" id="hero-img" alt="Hero Image" class="img hero-img"/>
         </picture>
 
         <div class="overlay">

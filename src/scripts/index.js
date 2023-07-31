@@ -5,11 +5,6 @@ import App from './views/app'
 import swRegister from './utils/sw-register'
 import 'lazysizes'
 import 'lazysizes/plugins/parent-fit/ls.parent-fit'
-// import WebSocketInitiator from './utils/websocket-initiator'
-// import CONFIG from './globals/config'
-
-// const START = 10
-// const NUMBER_OF_IMAGES = 100
 
 const app = new App({
   button: document.querySelector('#btn-dropdown'),
@@ -23,6 +18,7 @@ window.addEventListener('hashchange', () => {
 })
 
 window.addEventListener('load', () => {
+  console.log('lalala render')
   app.renderPage()
 
   swRegister()

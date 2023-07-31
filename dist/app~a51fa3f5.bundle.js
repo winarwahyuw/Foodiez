@@ -316,7 +316,8 @@ var API_ENDPOINT = {
 var CONFIG = {
   BASE_URL: 'https://restaurant-api.dicoding.dev/',
   DEFAULT_LANGUAGE: 'en-us',
-  CACHE_NAME: 'Foodiez-V1',
+  // CACHE_NAME: 'Foodiez-V1',
+  CACHE_NAME: new Date().toISOString(),
   DATABASE_NAME: 'foodiez-database',
   DATABASE_VERSION: 1,
   OBJECT_STORE_NAME: 'restaurants'
@@ -350,12 +351,6 @@ var CONFIG = {
 
 
 
-// import WebSocketInitiator from './utils/websocket-initiator'
-// import CONFIG from './globals/config'
-
-// const START = 10
-// const NUMBER_OF_IMAGES = 100
-
 var app = new _views_app__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z({
   button: document.querySelector('#btn-dropdown'),
   drawer: document.querySelector('#dropdown-menu'),
@@ -366,6 +361,7 @@ window.addEventListener('hashchange', function () {
   window.scrollTo(0, 0);
 });
 window.addEventListener('load', function () {
+  console.log('lalala render');
   app.renderPage();
   (0,_utils_sw_register__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z)();
   // WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER)

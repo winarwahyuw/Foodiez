@@ -13,7 +13,7 @@ const Detail = {
     <div class="jumbotron" id="jumbotron-detail">
       <picture>
         <source media="(max-width: 600px)" id="source-hero-img" srcset="">
-        <img src="" loading="lazy" id="hero-img" alt="Hero Image" class="img hero-img"/>
+        <img src="" id="hero-img" alt="Hero Image" class="img hero-img lazyload"/>
       </picture>
 
       <div class="overlay" id="overlay-detail">

@@ -9,9 +9,14 @@
   --light-secondary: #c4c4c4;
 }
 
+.skeleton{
+  width: inherit;
+  height: inherit;
+  background-color: var(--light);
+}
+
 #main-content{
   min-height: 100px;
-  background-color: var(--light-secondary);
 }
 
 a{

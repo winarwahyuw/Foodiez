@@ -240,23 +240,27 @@ var swRegister = /*#__PURE__*/function () {
           console.log('Service Worker not supported in the browser');
           return _context.abrupt("return");
         case 3:
+          if (navigator.serviceWorker.controller) {
+            _context.next = 14;
+            break;
+          }
           wb = new workbox_window__WEBPACK_IMPORTED_MODULE_0__/* .Workbox */ .ZW('./sw.bundle.js');
-          _context.prev = 4;
-          _context.next = 7;
+          _context.prev = 5;
+          _context.next = 8;
           return wb.register();
-        case 7:
+        case 8:
           console.log('Service worker registered');
-          _context.next = 13;
+          _context.next = 14;
           break;
-        case 10:
-          _context.prev = 10;
-          _context.t0 = _context["catch"](4);
+        case 11:
+          _context.prev = 11;
+          _context.t0 = _context["catch"](5);
           console.log('Failed to register service worker', _context.t0);
-        case 13:
+        case 14:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[4, 10]]);
+    }, _callee, null, [[5, 11]]);
   }));
   return function swRegister() {
     return _ref.apply(this, arguments);

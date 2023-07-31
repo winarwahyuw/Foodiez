@@ -1,7 +1,8 @@
 const CONFIG = {
   BASE_URL: 'https://restaurant-api.dicoding.dev/',
   DEFAULT_LANGUAGE: 'en-us',
-  CACHE_NAME: 'Foodiez-V1',
+  // CACHE_NAME: 'Foodiez-V1',
+  CACHE_NAME: new Date().toISOString(),
   DATABASE_NAME: 'foodiez-database',
   DATABASE_VERSION: 1,
   OBJECT_STORE_NAME: 'restaurants'

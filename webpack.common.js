@@ -73,11 +73,11 @@ module.exports = {
           //   // CopyWebpackPlugin mengabaikan berkas yang berada di dalam folder images
           //   ignore: ['**/images/**']
           // }
-        },
-        {
-          from: path.resolve(__dirname, 'src/public/icons'),
-          to: path.resolve(__dirname, 'dist/icons')
         }
+        // {
+        //   from: path.resolve(__dirname, 'src/public/icons'),
+        //   to: path.resolve(__dirname, 'dist/icons')
+        // }
       ]
     }),
     new WebpackPwaManifest({
@@ -108,6 +108,7 @@ module.exports = {
         })
       ]
     }),
+    new BundleAnalyzerPlugin(),
     new ImageminWebpWebpackPlugin({
       config: [
         {
@@ -119,9 +120,10 @@ module.exports = {
       ],
       overrideExtension: true
     }),
-    new BundleAnalyzerPlugin(),
     new WorkboxWebpackPlugin.GenerateSW({
-      swDest: './sw.bundle.js'
+      swDest: './sw.bundle.js',
+      clientsClaim: true,
+      skipWaiting: true
     })
   ]
 }
